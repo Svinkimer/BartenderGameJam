@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://bj6wa8lkswbuf"
-path="res://.godot/imported/shaker.webp-4c9bec68cc6d1b03353636d3308de410.ctex"
+uid="uid://rn2nbjdkqpf1"
+path="res://.godot/imported/alien.png-7f0925d70df85cf87705e15634110567.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Graphics/shaker.webp"
-dest_files=["res://.godot/imported/shaker.webp-4c9bec68cc6d1b03353636d3308de410.ctex"]
+source_file="res://Assets/Graphics/alien.png"
+dest_files=["res://.godot/imported/alien.png-7f0925d70df85cf87705e15634110567.ctex"]
 
 [params]
 
