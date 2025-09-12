@@ -17,30 +17,30 @@ texture = ExtResource("4_grsh6")
 position = Vector2(-33, 61)
 texture = ExtResource("5_v4ssl")
 
-[node name="Area2D" type="Area2D" parent="."]
-position = Vector2(-500, 77)
-scale = Vector2(0.76182, 0.76182)
-script = ExtResource("1_tsfhg")
-key = null
-metadata/_edit_group_ = true
-
-[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Area2D"]
-polygon = PackedVector2Array(-18, -176, -19, -61, -55, -27, -55, 161, -44, 174, 42, 177, 55, 162, 55, -30, 19, -65, 18, -176)
-
-[node name="Sprite2D" type="Sprite2D" parent="Area2D"]
-texture = ExtResource("2_grsh6")
-
 [node name="Area2D2" type="Area2D" parent="."]
-position = Vector2(-372, 77)
-scale = Vector2(0.76182, 0.76182)
+position = Vector2(-306, 78)
+scale = Vector2(0.773364, 0.773364)
 script = ExtResource("1_tsfhg")
-key = null
+key = &"Тоник"
 metadata/_edit_group_ = true
 
 [node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Area2D2"]
 polygon = PackedVector2Array(-18, -176, -19, -61, -55, -27, -55, 161, -44, 174, 42, 177, 55, 162, 55, -30, 19, -65, 18, -176)
 
 [node name="Sprite2D" type="Sprite2D" parent="Area2D2"]
+texture = ExtResource("2_grsh6")
+
+[node name="Area2D" type="Area2D" parent="."]
+position = Vector2(-500, 77)
+scale = Vector2(0.76182, 0.76182)
+script = ExtResource("1_tsfhg")
+key = &"Джин"
+metadata/_edit_group_ = true
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Area2D"]
+polygon = PackedVector2Array(-18, -176, -19, -61, -55, -27, -55, 161, -44, 174, 42, 177, 55, 162, 55, -30, 19, -65, 18, -176)
+
+[node name="Sprite2D" type="Sprite2D" parent="Area2D"]
 texture = ExtResource("2_grsh6")
 
 [node name="Camera2D" type="Camera2D" parent="."]
@@ -50,8 +50,9 @@ position = Vector2(-35, 84)
 scale = Vector2(0.322896, 0.322896)
 texture = ExtResource("3_v4ssl")
 
+[connection signal="input_event" from="Area2D2" to="Area2D2" method="_on_input_event"]
+[connection signal="mouse_entered" from="Area2D2" to="Area2D2" method="_on_mouse_entered"]
+[connection signal="mouse_exited" from="Area2D2" to="Area2D2" method="_on_mouse_exited"]
 [connection signal="input_event" from="Area2D" to="Area2D" method="_on_input_event"]
 [connection signal="mouse_entered" from="Area2D" to="Area2D" method="_on_mouse_entered"]
 [connection signal="mouse_exited" from="Area2D" to="Area2D" method="_on_mouse_exited"]
-[connection signal="mouse_entered" from="Area2D2" to="Area2D2" method="_on_mouse_entered"]
-[connection signal="mouse_exited" from="Area2D2" to="Area2D2" method="_on_mouse_exited"]
