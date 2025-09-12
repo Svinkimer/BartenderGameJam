@@ -1,0 +1,22 @@
+[gd_scene load_steps=3 format=3 uid="uid://d2nnm8hh0c27v"]
+
+[ext_resource type="Texture2D" uid="uid://mq01g4du4bav" path="res://bottle-asset.png" id="1_57xsf"]
+[ext_resource type="Script" uid="uid://clp8m5w7t5u81" path="res://Bottle_Script.gd" id="1_qcxwf"]
+
+[node name="BaseScene" type="Node2D"]
+
+[node name="Area2D" type="Area2D" parent="."]
+position = Vector2(-356, 15)
+scale = Vector2(0.76182, 0.76182)
+script = ExtResource("1_qcxwf")
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Area2D"]
+polygon = PackedVector2Array(-18, -176, -19, -61, -55, -27, -55, 161, -44, 174, 42, 177, 55, 162, 55, -30, 19, -65, 18, -176)
+
+[node name="Sprite2D" type="Sprite2D" parent="Area2D"]
+texture = ExtResource("1_57xsf")
+
+[node name="Camera2D" type="Camera2D" parent="."]
+
+[connection signal="mouse_entered" from="Area2D" to="Area2D" method="_on_mouse_entered"]
+[connection signal="mouse_exited" from="Area2D" to="Area2D" method="_on_mouse_exited"]
