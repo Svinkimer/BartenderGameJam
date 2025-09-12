@@ -1,0 +1,10 @@
+[gd_scene load_steps=2 format=3 uid="uid://dtneldrh6g5r0"]
+
+[ext_resource type="Texture2D" uid="uid://dcu7n1wjcaeuw" path="res://Assets/Graphics/barBacrgroundAndThings.jpg" id="1_sn1xx"]
+
+[node name="Background" type="Node2D"]
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+position = Vector2(576, 324)
+scale = Vector2(0.6, 0.6)
+texture = ExtResource("1_sn1xx")
