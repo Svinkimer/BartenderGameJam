@@ -1,0 +1,47 @@
+[gd_scene load_steps=7 format=3 uid="uid://cj6012mk42p4q"]
+
+[ext_resource type="Texture2D" uid="uid://bj6wa8lkswbuf" path="res://Assets/Graphics/shaker.webp" id="1_y63qt"]
+[ext_resource type="Script" uid="uid://blm6sq3hka6uw" path="res://Scripts/shaker.gd" id="2_n1qj4"]
+[ext_resource type="Texture2D" uid="uid://cwi0nc6u87ybk" path="res://Assets/Graphics/bar_shadow_round_large.svg" id="3_3cns1"]
+[ext_resource type="Texture2D" uid="uid://coto8obop2sla" path="res://Assets/Graphics/bar_round_gloss_large.svg" id="4_dbqg4"]
+[ext_resource type="Texture2D" uid="uid://byxaugdhh1u02" path="res://Assets/Graphics/double-arrow.png" id="5_ojfl1"]
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_3cns1"]
+radius = 90.473
+height = 395.986
+
+[node name="Shaker" type="AnimatableBody2D"]
+script = ExtResource("2_n1qj4")
+
+[node name="Shaker" type="Sprite2D" parent="."]
+position = Vector2(576, 324)
+rotation = 0.598648
+scale = Vector2(0.5, 0.5)
+texture = ExtResource("1_y63qt")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(576, 324)
+rotation = 0.598648
+shape = SubResource("CapsuleShape2D_3cns1")
+
+[node name="TextureProgressBar" type="TextureProgressBar" parent="."]
+offset_left = 1024.0
+offset_top = 456.0
+offset_right = 1120.0
+offset_bottom = 480.0
+rotation = -1.5708
+scale = Vector2(3, 3)
+step = 0.01
+value = 50.0
+texture_under = ExtResource("3_3cns1")
+texture_progress = ExtResource("4_dbqg4")
+
+[node name="Timer" type="Timer" parent="."]
+wait_time = 2.0
+
+[node name="ArrowShakeDirection" type="Sprite2D" parent="."]
+position = Vector2(170, 324)
+scale = Vector2(0.3, 0.3)
+texture = ExtResource("5_ojfl1")
+
+[connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]

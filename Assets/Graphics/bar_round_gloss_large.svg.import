@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://bj6wa8lkswbuf"
-path="res://.godot/imported/shaker.webp-4c9bec68cc6d1b03353636d3308de410.ctex"
+uid="uid://coto8obop2sla"
+path="res://.godot/imported/bar_round_gloss_large.svg-62626759130469111ea8389b75cecefb.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Graphics/shaker.webp"
-dest_files=["res://.godot/imported/shaker.webp-4c9bec68cc6d1b03353636d3308de410.ctex"]
+source_file="res://Assets/Graphics/bar_round_gloss_large.svg"
+dest_files=["res://.godot/imported/bar_round_gloss_large.svg-62626759130469111ea8389b75cecefb.ctex"]
 
 [params]
 
@@ -32,3 +32,6 @@ process/hdr_as_srgb=false
 process/hdr_clamp_exposure=false
 process/size_limit=0
 detect_3d/compress_to=1
+svg/scale=1.0
+editor/scale_with_editor_scale=false
+editor/convert_colors_with_editor_theme=false

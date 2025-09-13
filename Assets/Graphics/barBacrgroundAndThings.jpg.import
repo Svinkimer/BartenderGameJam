@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://bbu1t1x4uo1b3"
-path="res://.godot/imported/barBacrground.jpg-35b5c7c2c3275a1f78ca66697937387c.ctex"
+uid="uid://dcu7n1wjcaeuw"
+path="res://.godot/imported/barBacrgroundAndThings.jpg-0c214b8b728dbbf39eed70b6eb289c44.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Graphics/barBacrground.jpg"
-dest_files=["res://.godot/imported/barBacrground.jpg-35b5c7c2c3275a1f78ca66697937387c.ctex"]
+source_file="res://Assets/Graphics/barBacrgroundAndThings.jpg"
+dest_files=["res://.godot/imported/barBacrgroundAndThings.jpg-0c214b8b728dbbf39eed70b6eb289c44.ctex"]
 
 [params]
 

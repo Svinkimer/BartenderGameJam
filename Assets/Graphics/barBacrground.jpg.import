@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://dcysd8j2gcwn1"
-path="res://.godot/imported/table.webp-e56350c8caea9619c88519002940fc80.ctex"
+uid="uid://bp6mr54jpka4m"
+path="res://.godot/imported/barBacrground.jpg-07d403f92fe66b5442f609d07dc98ced.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Graphics/table.webp"
-dest_files=["res://.godot/imported/table.webp-e56350c8caea9619c88519002940fc80.ctex"]
+source_file="res://Assets/Graphics/barBacrground.jpg"
+dest_files=["res://.godot/imported/barBacrground.jpg-07d403f92fe66b5442f609d07dc98ced.ctex"]
 
 [params]
 

@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://mq01g4du4bav"
-path="res://.godot/imported/bottle-asset.png-7921edd518d01f581d39825d1c7fb314.ctex"
+uid="uid://cwi0nc6u87ybk"
+path="res://.godot/imported/bar_shadow_round_large.svg-992d0b0767318222557b7a89ada41a8d.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Graphics/bottle-asset.png"
-dest_files=["res://.godot/imported/bottle-asset.png-7921edd518d01f581d39825d1c7fb314.ctex"]
+source_file="res://Assets/Graphics/bar_shadow_round_large.svg"
+dest_files=["res://.godot/imported/bar_shadow_round_large.svg-992d0b0767318222557b7a89ada41a8d.ctex"]
 
 [params]
 
@@ -32,3 +32,6 @@ process/hdr_as_srgb=false
 process/hdr_clamp_exposure=false
 process/size_limit=0
 detect_3d/compress_to=1
+svg/scale=1.0
+editor/scale_with_editor_scale=false
+editor/convert_colors_with_editor_theme=false
