@@ -1,0 +1,10 @@
+[gd_resource type="Resource" script_class="CocktailPreset" load_steps=3 format=3 uid="uid://b14rl7maix6a3"]
+
+[ext_resource type="Script" uid="uid://bsl0ueiomlsm6" path="res://Scripts/ingredients/ingredient_preset.gd" id="1_imqxq"]
+[ext_resource type="Script" uid="uid://ddbigfcnk37ea" path="res://Scripts/cocktails/cocktail_preset.gd" id="4_6gc54"]
+
+[resource]
+script = ExtResource("4_6gc54")
+name = &"NULL"
+ingredients = Array[ExtResource("1_imqxq")]([])
+metadata/_custom_type_script = "uid://ddbigfcnk37ea"

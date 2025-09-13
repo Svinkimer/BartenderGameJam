@@ -1,0 +1,115 @@
+[gd_scene load_steps=14 format=3 uid="uid://nexu324ps2np"]
+
+[ext_resource type="Texture2D" uid="uid://bbu1t1x4uo1b3" path="res://Graphics/barBacrground.jpg" id="1_dguys"]
+[ext_resource type="Script" uid="uid://kxs6hx601h0l" path="res://Scripts/base_scene_script.gd" id="1_w82d0"]
+[ext_resource type="Texture2D" uid="uid://mq01g4du4bav" path="res://Graphics/bottle-asset.png" id="2_grsh6"]
+[ext_resource type="Script" uid="uid://wc3t5o6oddbj" path="res://Scripts/bottle_script_new.gd" id="3_dguys"]
+[ext_resource type="Texture2D" uid="uid://bj6wa8lkswbuf" path="res://Graphics/shaker.webp" id="3_v4ssl"]
+[ext_resource type="Shader" uid="uid://cgavux134173s" path="res://Scripts/highlight.gdshader" id="4_rj2d4"]
+[ext_resource type="Script" uid="uid://b4wmdykc34wpv" path="res://Scripts/mixers_cup.gd" id="6_7pjbf"]
+[ext_resource type="Texture2D" uid="uid://dolna3fmckrk6" path="res://Graphics/cap.png" id="6_iqjmv"]
+[ext_resource type="Material" uid="uid://br40smcaqjtlg" path="res://Scripts/highlight_shader_material.tres" id="10_w82d0"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_dguys"]
+shader = ExtResource("4_rj2d4")
+shader_parameter/intensity = 0.0
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_rj2d4"]
+shader = ExtResource("4_rj2d4")
+shader_parameter/intensity = 0.0
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_iqjmv"]
+radius = 27.0
+height = 62.0
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_w82d0"]
+shader = ExtResource("4_rj2d4")
+shader_parameter/intensity = 0.0
+
+[node name="BaseScene" type="Node2D"]
+script = ExtResource("1_w82d0")
+
+[node name="AlienSpawningPoint" type="Marker2D" parent="."]
+position = Vector2(-936, 57)
+
+[node name="BarBacrground" type="Sprite2D" parent="."]
+z_index = -2
+position = Vector2(-6.9855, 6.50002)
+scale = Vector2(0.68436, 0.668734)
+texture = ExtResource("1_dguys")
+
+[node name="Bottle2" type="Area2D" parent="."]
+position = Vector2(-440, 185)
+scale = Vector2(0.773364, 0.773364)
+script = ExtResource("3_dguys")
+key = &"Тоник"
+metadata/_edit_group_ = true
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Bottle2"]
+polygon = PackedVector2Array(-18, -176, -19, -61, -55, -27, -55, 161, -44, 174, 42, 177, 55, 162, 55, -30, 19, -65, 18, -176)
+
+[node name="Sprite2D" type="Sprite2D" parent="Bottle2"]
+material = SubResource("ShaderMaterial_dguys")
+texture = ExtResource("2_grsh6")
+
+[node name="Bottle1" type="Area2D" parent="."]
+position = Vector2(-550, 221)
+scale = Vector2(0.76182, 0.76182)
+script = ExtResource("3_dguys")
+key = &"Джин"
+metadata/_edit_group_ = true
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Bottle1"]
+polygon = PackedVector2Array(-18, -176, -19, -61, -55, -27, -55, 161, -44, 174, 42, 177, 55, 162, 55, -30, 19, -65, 18, -176)
+
+[node name="Sprite2D" type="Sprite2D" parent="Bottle1"]
+material = SubResource("ShaderMaterial_rj2d4")
+texture = ExtResource("2_grsh6")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+position = Vector2(-29, 252)
+scale = Vector2(0.273693, 0.273693)
+texture = ExtResource("3_v4ssl")
+
+[node name="Cap" type="Area2D" parent="."]
+position = Vector2(-162, 332)
+script = ExtResource("6_7pjbf")
+metadata/_edit_group_ = true
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Cap"]
+rotation = 1.5708
+shape = SubResource("CapsuleShape2D_iqjmv")
+
+[node name="Sprite2D" type="Sprite2D" parent="Cap"]
+material = SubResource("ShaderMaterial_w82d0")
+scale = Vector2(0.141834, 0.141834)
+texture = ExtResource("6_iqjmv")
+
+[node name="Camera2D" type="Camera2D" parent="."]
+
+[node name="Bottle3" type="Area2D" parent="."]
+position = Vector2(-328, 224)
+scale = Vector2(0.773364, 0.773364)
+script = ExtResource("3_dguys")
+key = &"Вода"
+metadata/_edit_group_ = true
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Bottle3"]
+polygon = PackedVector2Array(-18, -176, -19, -61, -55, -27, -55, 161, -44, 174, 42, 177, 55, 162, 55, -30, 19, -65, 18, -176)
+
+[node name="Sprite2D" type="Sprite2D" parent="Bottle3"]
+material = ExtResource("10_w82d0")
+texture = ExtResource("2_grsh6")
+
+[connection signal="input_event" from="Bottle2" to="Bottle2" method="_on_input_event"]
+[connection signal="mouse_entered" from="Bottle2" to="Bottle2" method="_on_mouse_entered"]
+[connection signal="mouse_exited" from="Bottle2" to="Bottle2" method="_on_mouse_exited"]
+[connection signal="input_event" from="Bottle1" to="Bottle1" method="_on_input_event"]
+[connection signal="mouse_entered" from="Bottle1" to="Bottle1" method="_on_mouse_entered"]
+[connection signal="mouse_exited" from="Bottle1" to="Bottle1" method="_on_mouse_exited"]
+[connection signal="input_event" from="Cap" to="Cap" method="_on_input_event"]
+[connection signal="mouse_entered" from="Cap" to="Cap" method="_on_mouse_entered"]
+[connection signal="mouse_exited" from="Cap" to="Cap" method="_on_mouse_exited"]
+[connection signal="input_event" from="Bottle3" to="Bottle3" method="_on_input_event"]
+[connection signal="mouse_entered" from="Bottle3" to="Bottle3" method="_on_mouse_entered"]
+[connection signal="mouse_exited" from="Bottle3" to="Bottle3" method="_on_mouse_exited"]

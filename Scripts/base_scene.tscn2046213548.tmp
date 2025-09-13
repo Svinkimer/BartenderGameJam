@@ -1,0 +1,194 @@
+[gd_scene load_steps=19 format=3 uid="uid://nexu324ps2np"]
+
+[ext_resource type="Texture2D" uid="uid://mq01g4du4bav" path="res://Assets/Graphics/bottle-asset.png" id="2_grsh6"]
+[ext_resource type="Script" uid="uid://nbj1pubyr7y6" path="res://Scripts/client_script.gd" id="2_w82d0"]
+[ext_resource type="Script" uid="uid://wc3t5o6oddbj" path="res://Scripts/bottle_script_new.gd" id="3_dguys"]
+[ext_resource type="Texture2D" uid="uid://bj6wa8lkswbuf" path="res://Assets/Graphics/shaker.webp" id="3_v4ssl"]
+[ext_resource type="Texture2D" uid="uid://cybnihopm2x4t" path="res://Assets/Graphics/speech_bubble.webp" id="3_vgg6j"]
+[ext_resource type="Texture2D" uid="uid://rn2nbjdkqpf1" path="res://Assets/Graphics/alien.png" id="4_grsh6"]
+[ext_resource type="Shader" uid="uid://cgavux134173s" path="res://Scripts/highlight.gdshader" id="4_rj2d4"]
+[ext_resource type="Texture2D" uid="uid://dcysd8j2gcwn1" path="res://Assets/Graphics/table.webp" id="5_v4ssl"]
+[ext_resource type="Script" uid="uid://b4wmdykc34wpv" path="res://Scripts/mixers_cup.gd" id="6_7pjbf"]
+[ext_resource type="Texture2D" uid="uid://dolna3fmckrk6" path="res://Assets/Graphics/cap.png" id="6_iqjmv"]
+[ext_resource type="Material" uid="uid://br40smcaqjtlg" path="res://Scripts/highlight_shader_material.tres" id="10_w82d0"]
+
+[sub_resource type="Animation" id="Animation_w82d0"]
+resource_name = "enter_scene"
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:position")
+tracks/0/interp = 2
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 1),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector2(852, 107), Vector2(328, 107)]
+}
+
+[sub_resource type="Animation" id="Animation_vgg6j"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(852, 107)]
+}
+
+[sub_resource type="Animation" id="Animation_inta4"]
+resource_name = "leave_scene"
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.966667),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector2(328, 107), Vector2(852, 107)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_vgg6j"]
+_data = {
+&"RESET": SubResource("Animation_vgg6j"),
+&"enter_scene": SubResource("Animation_w82d0"),
+&"leave_scene": SubResource("Animation_inta4")
+}
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_dguys"]
+shader = ExtResource("4_rj2d4")
+shader_parameter/intensity = 0.0
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_rj2d4"]
+shader = ExtResource("4_rj2d4")
+shader_parameter/intensity = 0.0
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_iqjmv"]
+radius = 27.0
+height = 62.0
+
+[node name="BaseScene" type="Node2D"]
+
+[node name="Camera2D" type="Camera2D" parent="."]
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+root_node = NodePath("Alien")
+libraries = {
+&"": SubResource("AnimationLibrary_vgg6j")
+}
+script = ExtResource("2_w82d0")
+
+[node name="Alien" type="Sprite2D" parent="AnimationPlayer"]
+z_index = -1
+position = Vector2(852, 107)
+scale = Vector2(0.785, 0.785)
+texture = ExtResource("4_grsh6")
+
+[node name="ProgressBar" type="ProgressBar" parent="AnimationPlayer/Alien"]
+anchors_preset = -1
+anchor_left = 0.5
+anchor_top = 0.135
+anchor_right = 0.5
+anchor_bottom = 0.135
+offset_left = -421.019
+offset_top = -488.266
+offset_right = -170.019
+offset_bottom = -461.266
+pivot_offset = Vector2(124.841, 14.0128)
+
+[node name="Label" type="Label" parent="AnimationPlayer/Alien"]
+offset_left = -47.1338
+offset_top = -433.121
+offset_right = 55.8662
+offset_bottom = -410.121
+text = "Мармеладзе"
+
+[node name="SpeechBubble" type="Sprite2D" parent="AnimationPlayer/Alien"]
+visible = false
+position = Vector2(-344.586, -377.07)
+scale = Vector2(0.516053, 0.475757)
+texture = ExtResource("3_vgg6j")
+
+[node name="Label" type="Label" parent="AnimationPlayer/Alien/SpeechBubble"]
+anchors_preset = -1
+anchor_left = 1.203
+anchor_top = 0.853
+anchor_right = 1.203
+anchor_bottom = 0.853
+offset_left = -1434.43
+offset_top = -964.465
+offset_right = -951.431
+offset_bottom = -818.465
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_font_sizes/font_size = 106
+text = "Fuck you!"
+
+[node name="Table" type="Sprite2D" parent="."]
+position = Vector2(-33, 61)
+texture = ExtResource("5_v4ssl")
+
+[node name="Bottle2" type="Area2D" parent="."]
+position = Vector2(-306, 78)
+scale = Vector2(0.773364, 0.773364)
+script = ExtResource("3_dguys")
+key = &"Тоник"
+metadata/_edit_group_ = true
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Bottle2"]
+polygon = PackedVector2Array(-18, -176, -19, -61, -55, -27, -55, 161, -44, 174, 42, 177, 55, 162, 55, -30, 19, -65, 18, -176)
+
+[node name="Sprite2D" type="Sprite2D" parent="Bottle2"]
+material = SubResource("ShaderMaterial_dguys")
+texture = ExtResource("2_grsh6")
+
+[node name="Bottle1" type="Area2D" parent="."]
+position = Vector2(-500, 77)
+scale = Vector2(0.76182, 0.76182)
+script = ExtResource("3_dguys")
+key = &"Джин"
+metadata/_edit_group_ = true
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Bottle1"]
+polygon = PackedVector2Array(-18, -176, -19, -61, -55, -27, -55, 161, -44, 174, 42, 177, 55, 162, 55, -30, 19, -65, 18, -176)
+
+[node name="Sprite2D" type="Sprite2D" parent="Bottle1"]
+material = SubResource("ShaderMaterial_rj2d4")
+texture = ExtResource("2_grsh6")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+position = Vector2(-1.00001, 101)
+scale = Vector2(0.273693, 0.273693)
+texture = ExtResource("3_v4ssl")
+
+[node name="Area2D3" type="Area2D" parent="."]
+position = Vector2(-154, 216)
+script = ExtResource("6_7pjbf")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D3"]
+rotation = 1.5708
+shape = SubResource("CapsuleShape2D_iqjmv")
+
+[node name="Sprite2D" type="Sprite2D" parent="Area2D3"]
+material = ExtResource("10_w82d0")
+scale = Vector2(0.141834, 0.141834)
+texture = ExtResource("6_iqjmv")
+
+[connection signal="animation_finished" from="AnimationPlayer" to="AnimationPlayer" method="_on_animation_finished"]
+[connection signal="input_event" from="Bottle2" to="Bottle2" method="_on_input_event"]
+[connection signal="mouse_entered" from="Bottle2" to="Bottle2" method="_on_mouse_entered"]
+[connection signal="mouse_exited" from="Bottle2" to="Bottle2" method="_on_mouse_exited"]
+[connection signal="input_event" from="Bottle1" to="Bottle1" method="_on_input_event"]
+[connection signal="mouse_entered" from="Bottle1" to="Bottle1" method="_on_mouse_entered"]
+[connection signal="mouse_exited" from="Bottle1" to="Bottle1" method="_on_mouse_exited"]
+[connection signal="input_event" from="Area2D3" to="Area2D3" method="_on_input_event"]
+[connection signal="mouse_entered" from="Area2D3" to="Area2D3" method="_on_mouse_entered"]
+[connection signal="mouse_exited" from="Area2D3" to="Area2D3" method="_on_mouse_exited"]
