@@ -1,0 +1,13 @@
+[gd_resource type="Resource" script_class="AlienPreset" load_steps=3 format=3 uid="uid://b57ph1kf58bbg"]
+
+[ext_resource type="Script" uid="uid://8vt14iwuaica" path="res://Scripts/alien_variants/alien_preset.gd" id="1_3ujtp"]
+[ext_resource type="Texture2D" uid="uid://ue20k7ue37n5" path="res://Graphics/green_alien.webp" id="2_3ujtp"]
+
+[resource]
+script = ExtResource("1_3ujtp")
+name = "Няшка"
+texture = ExtResource("2_3ujtp")
+namecolor = Color(0.873688, 0.332406, 0.837458, 1)
+good_farewell = Array[String](["*Рыгает* Объеденье!", "Эх, я б еще выпил..."])
+bad_farewell = Array[String](["За что ты меня отравить хочешь?!", "*Блюет*"])
+metadata/_custom_type_script = "uid://8vt14iwuaica"

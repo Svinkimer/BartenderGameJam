@@ -1,0 +1,8 @@
+[gd_resource type="Resource" script_class="IngredientPreset" load_steps=2 format=3 uid="uid://bd7w6ca452nqg"]
+
+[ext_resource type="Script" uid="uid://bsl0ueiomlsm6" path="res://Scripts/ingredients/ingredient_preset.gd" id="1_ksnxh"]
+
+[resource]
+resource_name = "Тоник"
+script = ExtResource("1_ksnxh")
+metadata/_custom_type_script = "uid://bsl0ueiomlsm6"

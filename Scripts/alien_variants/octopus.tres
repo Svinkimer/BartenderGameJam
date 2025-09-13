@@ -1,0 +1,13 @@
+[gd_resource type="Resource" script_class="AlienPreset" load_steps=3 format=3 uid="uid://5allly8fun65"]
+
+[ext_resource type="Script" uid="uid://8vt14iwuaica" path="res://Scripts/alien_variants/alien_preset.gd" id="1_qar05"]
+[ext_resource type="Texture2D" uid="uid://rn2nbjdkqpf1" path="res://Graphics/alien.png" id="2_6iauy"]
+
+[resource]
+script = ExtResource("1_qar05")
+name = "Омсьминогин"
+texture = ExtResource("2_6iauy")
+namecolor = Color(0.364945, 0.737659, 0, 1)
+good_farewell = Array[String](["Очень вкусьненько!", "Просто прекрасно!"])
+bad_farewell = Array[String](["Кажется, я зашел не в ту дверь...", "Это просто чудовищно!"])
+metadata/_custom_type_script = "uid://8vt14iwuaica"

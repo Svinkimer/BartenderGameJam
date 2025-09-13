@@ -1,0 +1,12 @@
+[gd_resource type="Resource" script_class="CocktailPreset" load_steps=5 format=3 uid="uid://c681os1lt7nct"]
+
+[ext_resource type="Script" uid="uid://bsl0ueiomlsm6" path="res://Scripts/ingredients/ingredient_preset.gd" id="1_mixs3"]
+[ext_resource type="Resource" uid="uid://bwown7dcpfvo6" path="res://Scripts/ingredients/wiskey.tres" id="2_05vf2"]
+[ext_resource type="Script" uid="uid://ddbigfcnk37ea" path="res://Scripts/cocktails/cocktail_preset.gd" id="2_c46ew"]
+[ext_resource type="Resource" uid="uid://bd7w6ca452nqg" path="res://Scripts/ingredients/tonic.tres" id="3_wid8x"]
+
+[resource]
+script = ExtResource("2_c46ew")
+name = &""
+ingredients = Array[ExtResource("1_mixs3")]([ExtResource("2_05vf2"), ExtResource("3_wid8x")])
+metadata/_custom_type_script = "uid://ddbigfcnk37ea"

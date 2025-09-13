@@ -11,13 +11,18 @@ config_version=5
 [application]
 
 config/name="Bartender"
-run/main_scene="uid://d2nnm8hh0c27v"
+run/main_scene="uid://nexu324ps2np"
 config/features=PackedStringArray("4.4", "Mobile")
 config/icon="res://icon.svg"
 
 [autoload]
 
 GameState="*res://Scripts/GameState.gd"
+
+[display]
+
+window/size/viewport_width=1280
+window/size/viewport_height=720
 
 [rendering]
 

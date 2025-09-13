@@ -1,0 +1,8 @@
+[gd_resource type="Resource" script_class="IngredientPreset" load_steps=2 format=3 uid="uid://buyaw0dauxdkx"]
+
+[ext_resource type="Script" uid="uid://bsl0ueiomlsm6" path="res://Scripts/ingredients/ingredient_preset.gd" id="1_85tbk"]
+
+[resource]
+resource_name = "Джин"
+script = ExtResource("1_85tbk")
+metadata/_custom_type_script = "uid://bsl0ueiomlsm6"
