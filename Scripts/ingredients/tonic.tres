@@ -3,6 +3,6 @@
 [ext_resource type="Script" uid="uid://bsl0ueiomlsm6" path="res://Scripts/ingredients/ingredient_preset.gd" id="1_ksnxh"]
 
 [resource]
-resource_name = "Тоник"
 script = ExtResource("1_ksnxh")
+name = &"Тоник"
 metadata/_custom_type_script = "uid://bsl0ueiomlsm6"

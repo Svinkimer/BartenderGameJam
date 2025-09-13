@@ -3,6 +3,6 @@
 [ext_resource type="Script" uid="uid://bsl0ueiomlsm6" path="res://Scripts/ingredients/ingredient_preset.gd" id="1_het3d"]
 
 [resource]
-resource_name = "Виски"
 script = ExtResource("1_het3d")
+name = &"Виски"
 metadata/_custom_type_script = "uid://bsl0ueiomlsm6"

@@ -48,20 +48,23 @@ func update_temper_display( progress_val: float):
 
 
 func place_order():
-	print("alien placed order")
-	say("Hey, I want 'Джин-Тоник'", 2.0)
+	GameState.pick_cocktail()
+	say("Hey, I want '" + GameState.ordered_cocktail.name + "'", 1.5)
+	GameState.current_client = self
 	temper_tween = create_tween()
 	temper_tween.tween_method(update_temper_display, 0.0, 100.0, ALIEN_WAITING_TIME);
 	temper_tween.finished.connect(temper_over)
 	
 func temper_over():
-	print("I'm done waiting!")
 	leave_scene()
 	say("Fuck you", 1.0)
-	
+
+func drink_right_order():
+	temper_tween.kill()
+	say("Thank you, sunshine!", 1.0)
+	leave_scene()
 
 func say(replic: String, time: float):
-	print("I'm trying to say something")
 	$SpeechBubble.show()
 	$SpeechBubble/Label.text = replic
 	var timer = get_tree().create_timer(time)

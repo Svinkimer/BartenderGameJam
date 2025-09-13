@@ -7,6 +7,6 @@
 
 [resource]
 script = ExtResource("2_c46ew")
-name = &""
+name = &"Черный русский"
 ingredients = Array[ExtResource("1_mixs3")]([ExtResource("2_05vf2"), ExtResource("3_wid8x")])
 metadata/_custom_type_script = "uid://ddbigfcnk37ea"

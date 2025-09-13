@@ -40,27 +40,29 @@ func add_drink_in_mixer(ingredient: IngredientPreset) -> bool:
 #endregion
 
 #region MIXING COCKTAILS
+var mixed_cocktail_label: Label
 var null_cocktail: CocktailPreset = preload("uid://b14rl7maix6a3")
+var mixed_cocktail: CocktailPreset = null_cocktail
 
 func mix_cocktail() -> CocktailPreset:
+	
 	for cocktail in available_cocktails:
-		var all_ingredients_present = false
+		var all_ingredients_present = true
 		
-		for ingredient: IngredientPreset in cocktail:
-			if !drinks_in_mixer[ingredient]: 
+		for ingredient: IngredientPreset in cocktail.ingredients:
+			print("Ingredient: ", ingredient)
+			if !drinks_in_mixer[ingredient]:
+				print("No ingridient ", ingredient.name, " for cocktail ", cocktail.name)
 				all_ingredients_present = false
 				
 				
 		if all_ingredients_present:
 			print("You are shaking cocktail:: ", cocktail.name)
 			clear_drinks_in_mixer()
-			return cocktail
-			
-		
-	clear_drinks_in_mixer()
-	return null_cocktail
+			mixed_cocktail = cocktail
 	
-	
+	mixed_cocktail_label.text = mixed_cocktail.name
+	return mixed_cocktail
 
 
 
@@ -79,7 +81,7 @@ var available_cocktails : Array[CocktailPreset] = [
 ]
 
 
-var ordered_cocktail: Resource
+
 
 var alien_spawning_point_position: Vector2 = Vector2(-900, 70)
 var alien_scene = preload("uid://dkc26c74e7e4b")
@@ -87,11 +89,6 @@ var alien_presets: Array[AlienPreset] = [
 	preload("uid://b57ph1kf58bbg"),
 	preload("uid://5allly8fun65"),
 ]
-
-
-
-
-
 
 func _ready() -> void:
 	print("Creating new alien")
@@ -108,4 +105,31 @@ func create_client():
 	new_alien.initiate(alien_presets[1])
 	get_tree().root.get_node("BaseScene").add_child(new_alien)
 	
+#endregion
+
+
+#region MAKING ORDER
+var ordered_cocktail_label: Label
+var ordered_cocktail: CocktailPreset = null_cocktail : 
+	set(new_cocktail):
+		ordered_cocktail = new_cocktail
+		ordered_cocktail_label.text = new_cocktail.name
+		
+
+func pick_cocktail():
+	var cocktail_idx = randi_range(0, len(available_cocktails)-1)
+	ordered_cocktail = available_cocktails[cocktail_idx]
+
+var current_client: Client
+
+
+#endregion
+
+
+#region GIVING ORDER
+func serve_order()-> void:
+	if mixed_cocktail != null_cocktail and ordered_cocktail == mixed_cocktail:
+		current_client.drink_right_order()
+		print("You made correct cocktail!")
+
 #endregion

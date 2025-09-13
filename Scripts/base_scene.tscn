@@ -1,4 +1,4 @@
-[gd_scene load_steps=17 format=3 uid="uid://nexu324ps2np"]
+[gd_scene load_steps=20 format=3 uid="uid://nexu324ps2np"]
 
 [ext_resource type="Texture2D" uid="uid://bbu1t1x4uo1b3" path="res://Graphics/barBacrground.jpg" id="1_dguys"]
 [ext_resource type="Script" uid="uid://kxs6hx601h0l" path="res://Scripts/base_scene_script.gd" id="1_w82d0"]
@@ -12,6 +12,8 @@
 [ext_resource type="Resource" uid="uid://buyaw0dauxdkx" path="res://Scripts/ingredients/gin.tres" id="6_w82d0"]
 [ext_resource type="Material" uid="uid://br40smcaqjtlg" path="res://Scripts/highlight_shader_material.tres" id="10_w82d0"]
 [ext_resource type="Resource" uid="uid://bwown7dcpfvo6" path="res://Scripts/ingredients/wiskey.tres" id="11_inta4"]
+[ext_resource type="Script" uid="uid://co2iqtq27tpbs" path="res://Scripts/cocktail_glass.gd" id="13_4ojyy"]
+[ext_resource type="Texture2D" uid="uid://chbo4k7k5hgql" path="res://Graphics/cocktail.png" id="13_sujg0"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_dguys"]
 shader = ExtResource("4_rj2d4")
@@ -26,6 +28,10 @@ radius = 27.0
 height = 62.0
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_w82d0"]
+shader = ExtResource("4_rj2d4")
+shader_parameter/intensity = 0.0
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_4ojyy"]
 shader = ExtResource("4_rj2d4")
 shader_parameter/intensity = 0.0
 
@@ -107,6 +113,46 @@ polygon = PackedVector2Array(-18, -176, -19, -61, -55, -27, -55, 161, -44, 174, 
 material = ExtResource("10_w82d0")
 texture = ExtResource("2_grsh6")
 
+[node name="OrderedCocktailLabel" type="Label" parent="."]
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -212.0
+offset_top = -358.0
+offset_right = 212.0
+offset_bottom = -301.0
+grow_horizontal = 2
+theme_override_colors/font_color = Color(0.0927936, 0.226388, 0, 1)
+theme_override_font_sizes/font_size = 41
+text = "Заказ"
+horizontal_alignment = 1
+
+[node name="MixedCocktailLabel" type="Label" parent="."]
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -196.0
+offset_top = -165.0
+offset_right = 195.0
+offset_bottom = -114.0
+grow_horizontal = 2
+theme_override_colors/font_color = Color(1, 1, 1, 1)
+theme_override_font_sizes/font_size = 26
+text = "Заказ"
+horizontal_alignment = 1
+
+[node name="CocktailGlass" type="Area2D" parent="."]
+script = ExtResource("13_4ojyy")
+
+[node name="Sprite2D" type="Sprite2D" parent="CocktailGlass"]
+material = SubResource("ShaderMaterial_4ojyy")
+position = Vector2(-9, -24)
+scale = Vector2(0.166667, 0.166667)
+texture = ExtResource("13_sujg0")
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="CocktailGlass"]
+polygon = PackedVector2Array(-56, -98, -25, -115, 15, -116, 37, -102, 3, -42, -3, -13, -3, 41, 28, 53, 4, 68, -29, 66, -47, 54, -14, 42, -15, -16, -24, -46)
+
 [connection signal="input_event" from="Bottle2" to="Bottle2" method="_on_input_event"]
 [connection signal="mouse_entered" from="Bottle2" to="Bottle2" method="_on_mouse_entered"]
 [connection signal="mouse_exited" from="Bottle2" to="Bottle2" method="_on_mouse_exited"]
@@ -119,3 +165,6 @@ texture = ExtResource("2_grsh6")
 [connection signal="input_event" from="Bottle3" to="Bottle3" method="_on_input_event"]
 [connection signal="mouse_entered" from="Bottle3" to="Bottle3" method="_on_mouse_entered"]
 [connection signal="mouse_exited" from="Bottle3" to="Bottle3" method="_on_mouse_exited"]
+[connection signal="input_event" from="CocktailGlass" to="CocktailGlass" method="_on_input_event"]
+[connection signal="mouse_entered" from="CocktailGlass" to="CocktailGlass" method="_on_mouse_entered"]
+[connection signal="mouse_exited" from="CocktailGlass" to="CocktailGlass" method="_on_mouse_exited"]
