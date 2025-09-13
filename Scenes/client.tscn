@@ -1,8 +1,8 @@
 [gd_scene load_steps=4 format=3 uid="uid://dkc26c74e7e4b"]
 
 [ext_resource type="Script" uid="uid://nbj1pubyr7y6" path="res://Scripts/client_script.gd" id="1_v1moc"]
-[ext_resource type="Texture2D" uid="uid://rn2nbjdkqpf1" path="res://Graphics/alien.png" id="2_wuhft"]
-[ext_resource type="Texture2D" uid="uid://cybnihopm2x4t" path="res://Graphics/speech_bubble.webp" id="3_urhfn"]
+[ext_resource type="Texture2D" uid="uid://rn2nbjdkqpf1" path="res://Assets/Graphics/alien.png" id="2_wuhft"]
+[ext_resource type="Texture2D" uid="uid://cybnihopm2x4t" path="res://Assets/Graphics/speech_bubble.webp" id="3_urhfn"]
 
 [node name="Alien" type="Sprite2D"]
 z_index = -1
@@ -16,21 +16,27 @@ anchor_left = 0.5
 anchor_top = 0.481
 anchor_right = 0.5
 anchor_bottom = 0.481
-offset_left = -421.019
-offset_top = -720.181
-offset_right = -170.019
-offset_bottom = -693.181
+offset_left = -424.049
+offset_top = -757.772
+offset_right = -173.049
+offset_bottom = -730.772
 pivot_offset = Vector2(124.841, 14.0128)
 show_percentage = false
-metadata/_edit_use_anchors_ = true
 
 [node name="Label" type="Label" parent="."]
-offset_left = -47.1338
-offset_top = -433.121
-offset_right = 55.8662
-offset_bottom = -410.121
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -354.53
+offset_top = -839.178
+offset_right = -251.53
+offset_bottom = -816.178
+grow_horizontal = 2
+grow_vertical = 2
+size_flags_horizontal = 4
 text = "Мармеладзе"
-metadata/_edit_use_anchors_ = true
 
 [node name="SpeechBubble" type="Sprite2D" parent="."]
 visible = false

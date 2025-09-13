@@ -2,7 +2,7 @@ class_name Client
 extends Sprite2D
 
 const ALIEN_MOVEMENT_SLOWNESS: float = 2.0
-const ALIEN_WAITING_TIME: float = 3.0
+const ALIEN_WAITING_TIME: float = 5.0
 
 
 var temper_tween: Tween;

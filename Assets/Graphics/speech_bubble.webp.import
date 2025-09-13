@@ -3,15 +3,15 @@
 importer="texture"
 type="CompressedTexture2D"
 uid="uid://cybnihopm2x4t"
-path="res://.godot/imported/speech_bubble.webp-8f9f29faeeb385e3ac6c6a04df52ae4c.ctex"
+path="res://.godot/imported/speech_bubble.webp-fc7c5cb539832c0d3ec4c9b9360337cf.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Graphics/speech_bubble.webp"
-dest_files=["res://.godot/imported/speech_bubble.webp-8f9f29faeeb385e3ac6c6a04df52ae4c.ctex"]
+source_file="res://Assets/Graphics/speech_bubble.webp"
+dest_files=["res://.godot/imported/speech_bubble.webp-fc7c5cb539832c0d3ec4c9b9360337cf.ctex"]
 
 [params]
 

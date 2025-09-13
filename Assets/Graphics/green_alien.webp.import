@@ -3,15 +3,15 @@
 importer="texture"
 type="CompressedTexture2D"
 uid="uid://ue20k7ue37n5"
-path="res://.godot/imported/green_alien.webp-635e738cdeda518df506bb7a0c27e88c.ctex"
+path="res://.godot/imported/green_alien.webp-020ff3ad1d7abee56b5d2022b7ff0b0f.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Graphics/green_alien.webp"
-dest_files=["res://.godot/imported/green_alien.webp-635e738cdeda518df506bb7a0c27e88c.ctex"]
+source_file="res://Assets/Graphics/green_alien.webp"
+dest_files=["res://.godot/imported/green_alien.webp-020ff3ad1d7abee56b5d2022b7ff0b0f.ctex"]
 
 [params]
 

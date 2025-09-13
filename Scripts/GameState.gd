@@ -42,7 +42,10 @@ func add_drink_in_mixer(ingredient: IngredientPreset) -> bool:
 #region MIXING COCKTAILS
 var mixed_cocktail_label: Label
 var null_cocktail: CocktailPreset = preload("uid://b14rl7maix6a3")
-var mixed_cocktail: CocktailPreset = null_cocktail
+var mixed_cocktail: CocktailPreset = null_cocktail :
+	set(new_mix):
+		mixed_cocktail = new_mix
+		mixed_cocktail_label.text = new_mix.name
 
 func mix_cocktail() -> CocktailPreset:
 	
@@ -61,7 +64,7 @@ func mix_cocktail() -> CocktailPreset:
 			clear_drinks_in_mixer()
 			mixed_cocktail = cocktail
 	
-	mixed_cocktail_label.text = mixed_cocktail.name
+	
 	return mixed_cocktail
 
 
@@ -92,7 +95,8 @@ var alien_presets: Array[AlienPreset] = [
 
 func _ready() -> void:
 	print("Creating new alien")
-	create_client()
+	if get_tree().root.has_node("BaseScene"):
+		create_client()
 	
 	
 func try_to_spawn_next_client() -> void:
@@ -130,6 +134,7 @@ var current_client: Client
 func serve_order()-> void:
 	if mixed_cocktail != null_cocktail and ordered_cocktail == mixed_cocktail:
 		current_client.drink_right_order()
+		mixed_cocktail = null_cocktail
 		print("You made correct cocktail!")
 
 #endregion
