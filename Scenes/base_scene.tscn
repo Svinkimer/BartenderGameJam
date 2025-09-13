@@ -1,6 +1,6 @@
 [gd_scene load_steps=6 format=3 uid="uid://d2nnm8hh0c27v"]
 
-[ext_resource type="Script" uid="uid://clp8m5w7t5u81" path="res://Scripts/Bottle_Script.gd" id="1_tsfhg"]
+[ext_resource type="Script" uid="uid://wc3t5o6oddbj" path="res://Scripts/bottle_script_new.gd" id="1_tsfhg"]
 [ext_resource type="Texture2D" uid="uid://mq01g4du4bav" path="res://Assets/Graphics/bottle-asset.png" id="2_grsh6"]
 [ext_resource type="Texture2D" uid="uid://bj6wa8lkswbuf" path="res://Assets/Graphics/shaker.webp" id="3_v4ssl"]
 [ext_resource type="Texture2D" uid="uid://rn2nbjdkqpf1" path="res://Assets/Graphics/alien.png" id="4_grsh6"]
