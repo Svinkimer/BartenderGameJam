@@ -1,0 +1,13 @@
+[gd_resource type="Resource" script_class="AlienPreset" load_steps=2 format=3 uid="uid://ddy1ootv74mt6"]
+
+[ext_resource type="Script" uid="uid://8vt14iwuaica" path="res://Scripts/alien_variants/alien_preset.gd" id="1_r74jw"]
+
+[resource]
+script = ExtResource("1_r74jw")
+name = ""
+namecolor = Color(0, 0, 0, 1)
+greeting_line = Array[String]([])
+good_drink_reply = Array[String]([])
+wrong_drink_reply = Array[String]([])
+times_up_reply = Array[String]([])
+metadata/_custom_type_script = "uid://8vt14iwuaica"
