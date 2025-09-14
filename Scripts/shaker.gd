@@ -10,7 +10,6 @@ extends AnimatableBody2D
 @onready var timer: Timer = $Timer
 
 var is_pressed := false
-var init_mouse_pos := Vector2.ZERO
 
 var is_mixed := false
 
@@ -45,25 +44,24 @@ func _input_event(viewport: Viewport, event: InputEvent, shape_idx: int) -> void
 		arrow_animation.play("pulse")
 		timer.start()
 		timer.wait_time = 3
-	
-	if is_pressed and event is InputEventMouseMotion:
-		var mouse_pos = event.position
-		detect_shake(shake_direction, mouse_pos)
 
-func detect_shake(shake_direction, mouse_pos):
+func detect_shake(shake_direction, mouse_relative: Vector2):
 	if (shake_direction == SHAKE_DIRECTIONS.VERTICAL):
-		if (abs(mouse_pos.x - init_mouse_pos.x) < 20) and (abs(mouse_pos.y - init_mouse_pos.y) > 5):
+		if (abs(mouse_relative.y) > 5 and abs(mouse_relative.x) < 10):
 			progress_bar.value += increment
 			shaker_animation.play("vertical_shake")
 	else:
-		if (abs(mouse_pos.y - init_mouse_pos.y) < 20) and (abs(mouse_pos.x - init_mouse_pos.x) > 5):
+		if (abs(mouse_relative.x) > 5 and abs(mouse_relative.y) < 10):
 			progress_bar.value += increment
 			shaker_animation.play("horizontal_shake")
-	
+
 	if progress_bar.value == progress_bar.max_value:
 		is_mixed = true
 		arrow_animation.play("RESET")
 		shaker_animation.play("RESET")
 		arrow_shake_direction.visible = false
-	
-	init_mouse_pos = mouse_pos
+
+func _input(event: InputEvent) -> void:
+	if is_pressed and event is InputEventMouseMotion:
+		var mouse_relative = event.get_relative()
+		detect_shake(shake_direction, mouse_relative)

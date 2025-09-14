@@ -95,6 +95,8 @@ var alien_presets: Array[AlienPreset] = [
 
 func _ready() -> void:
 	print("Creating new alien")
+	await get_tree().create_timer(1).timeout
+	
 	if get_tree().root.has_node("BaseScene"):
 		create_client()
 	
