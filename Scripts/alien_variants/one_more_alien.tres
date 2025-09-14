@@ -1,0 +1,15 @@
+[gd_resource type="Resource" script_class="AlienPreset" load_steps=3 format=3 uid="uid://ddy1ootv74mt6"]
+
+[ext_resource type="Script" uid="uid://8vt14iwuaica" path="res://Scripts/alien_variants/alien_preset.gd" id="1_r74jw"]
+[ext_resource type="Texture2D" uid="uid://bvfsovbphwl78" path="res://Assets/Graphics/one_more_alien.png" id="2_n7hwj"]
+
+[resource]
+script = ExtResource("1_r74jw")
+name = "Килькоров"
+texture = ExtResource("2_n7hwj")
+namecolor = Color(0.619608, 0.117647, 0, 1)
+greeting_line = Array[String](["Give me your warmest welcome! I would like some '", "Did I enter the right door? I want '"])
+good_drink_reply = Array[String](["This tastes like my home planet’s sunset.", "I’m buying you a drink next time!"])
+wrong_drink_reply = Array[String](["This ain’t even close.", "You sleep-walked this. Next time try to make it with eyes open."])
+times_up_reply = Array[String](["I’ve waited longer for my coffee to brew on Earth!", "This wait is longer than my last relationship."])
+metadata/_custom_type_script = "uid://8vt14iwuaica"
