@@ -1,0 +1,255 @@
+[gd_scene load_steps=27 format=3 uid="uid://nexu324ps2np"]
+
+[ext_resource type="Texture2D" uid="uid://bp6mr54jpka4m" path="res://Assets/Graphics/barBacrground.jpg" id="1_dguys"]
+[ext_resource type="Script" uid="uid://kxs6hx601h0l" path="res://Scripts/base_scene_script.gd" id="1_w82d0"]
+[ext_resource type="Texture2D" uid="uid://mq01g4du4bav" path="res://Assets/Graphics/bottle-asset.png" id="2_grsh6"]
+[ext_resource type="Script" uid="uid://wc3t5o6oddbj" path="res://Scripts/bottle_script_new.gd" id="3_dguys"]
+[ext_resource type="Texture2D" uid="uid://bj6wa8lkswbuf" path="res://Assets/Graphics/shaker.webp" id="3_v4ssl"]
+[ext_resource type="Shader" uid="uid://cgavux134173s" path="res://Scripts/highlight.gdshader" id="4_rj2d4"]
+[ext_resource type="Resource" uid="uid://bd7w6ca452nqg" path="res://Scripts/ingredients/tonic.tres" id="4_vgg6j"]
+[ext_resource type="Script" uid="uid://b4wmdykc34wpv" path="res://Scripts/mixers_cup.gd" id="6_7pjbf"]
+[ext_resource type="Texture2D" uid="uid://dolna3fmckrk6" path="res://Assets/Graphics/cap.png" id="6_iqjmv"]
+[ext_resource type="Resource" uid="uid://buyaw0dauxdkx" path="res://Scripts/ingredients/gin.tres" id="6_w82d0"]
+[ext_resource type="Material" uid="uid://br40smcaqjtlg" path="res://Scripts/highlight_shader_material.tres" id="10_w82d0"]
+[ext_resource type="Resource" uid="uid://bwown7dcpfvo6" path="res://Scripts/ingredients/wiskey.tres" id="11_inta4"]
+[ext_resource type="Script" uid="uid://co2iqtq27tpbs" path="res://Scripts/cocktail_glass.gd" id="13_4ojyy"]
+[ext_resource type="Texture2D" uid="uid://chbo4k7k5hgql" path="res://Assets/Graphics/cocktail.png" id="13_sujg0"]
+[ext_resource type="Script" uid="uid://dt1xlesr74lce" path="res://Scripts/topping_script.gd" id="15_pcjn2"]
+[ext_resource type="Texture2D" uid="uid://co3kkxxpqpwxp" path="res://Assets/Graphics/Topping_1.png" id="16_mw2s4"]
+[ext_resource type="Resource" uid="uid://7gpxth7fjkll" path="res://Scripts/toppings/strawberries.tres" id="16_rb0y5"]
+[ext_resource type="Texture2D" uid="uid://db7hikm5rw6l1" path="res://Assets/Graphics/Topping_2.png" id="17_mw2s4"]
+[ext_resource type="Resource" uid="uid://dmn8rm05sjufe" path="res://Scripts/toppings/eyeballs.tres" id="18_dwuxu"]
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_iqjmv"]
+radius = 27.0
+height = 62.0
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_w82d0"]
+shader = ExtResource("4_rj2d4")
+shader_parameter/intensity = 0.0
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_4ojyy"]
+shader = ExtResource("4_rj2d4")
+shader_parameter/intensity = 0.0
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_dguys"]
+shader = ExtResource("4_rj2d4")
+shader_parameter/intensity = 0.0
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_rj2d4"]
+shader = ExtResource("4_rj2d4")
+shader_parameter/intensity = 0.0
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_pcjn2"]
+shader = ExtResource("4_rj2d4")
+shader_parameter/intensity = 0.0
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_ipxxv"]
+shader = ExtResource("4_rj2d4")
+shader_parameter/intensity = 0.0
+
+[node name="BaseScene" type="Node2D"]
+script = ExtResource("1_w82d0")
+
+[node name="AlienSpawningPoint" type="Marker2D" parent="."]
+position = Vector2(-936, 57)
+
+[node name="BarBacrground" type="Sprite2D" parent="."]
+z_index = -2
+position = Vector2(-6.9855, 6.50002)
+scale = Vector2(0.68436, 0.668734)
+texture = ExtResource("1_dguys")
+
+[node name="Shaker" type="Sprite2D" parent="."]
+position = Vector2(-29, 252)
+scale = Vector2(0.273693, 0.273693)
+texture = ExtResource("3_v4ssl")
+
+[node name="Cap" type="Area2D" parent="."]
+position = Vector2(-162, 332)
+script = ExtResource("6_7pjbf")
+metadata/_edit_group_ = true
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Cap"]
+rotation = 1.5708
+shape = SubResource("CapsuleShape2D_iqjmv")
+
+[node name="Sprite2D" type="Sprite2D" parent="Cap"]
+material = SubResource("ShaderMaterial_w82d0")
+scale = Vector2(0.141834, 0.141834)
+texture = ExtResource("6_iqjmv")
+
+[node name="Camera2D" type="Camera2D" parent="."]
+
+[node name="OrderedCocktailLabel" type="Label" parent="."]
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -212.0
+offset_top = -358.0
+offset_right = 212.0
+offset_bottom = -301.0
+grow_horizontal = 2
+theme_override_colors/font_color = Color(0.0927936, 0.226388, 0, 1)
+theme_override_font_sizes/font_size = 41
+text = "Заказ"
+horizontal_alignment = 1
+
+[node name="MixedCocktailLabel" type="Label" parent="."]
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -196.0
+offset_top = -165.0
+offset_right = 195.0
+offset_bottom = -114.0
+grow_horizontal = 2
+theme_override_colors/font_color = Color(1, 1, 1, 1)
+theme_override_font_sizes/font_size = 26
+text = "Заказ"
+horizontal_alignment = 1
+
+[node name="CocktailGlass" type="Area2D" parent="."]
+script = ExtResource("13_4ojyy")
+
+[node name="Sprite2D" type="Sprite2D" parent="CocktailGlass"]
+material = SubResource("ShaderMaterial_4ojyy")
+position = Vector2(-9, -24)
+scale = Vector2(0.166667, 0.166667)
+texture = ExtResource("13_sujg0")
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="CocktailGlass"]
+polygon = PackedVector2Array(-56, -98, -25, -115, 15, -116, 37, -102, 3, -42, -3, -13, -3, 41, 28, 53, 4, 68, -29, 66, -47, 54, -14, 42, -15, -16, -24, -46)
+
+[node name="ToppingsList" type="VBoxContainer" parent="CocktailGlass"]
+unique_name_in_owner = true
+offset_right = 54.0
+offset_bottom = 40.0
+
+[node name="Drinks" type="Node" parent="."]
+
+[node name="Bottle2" type="Area2D" parent="Drinks"]
+position = Vector2(-440, 185)
+scale = Vector2(0.773364, 0.773364)
+script = ExtResource("3_dguys")
+key = &"Тоник"
+drink = ExtResource("4_vgg6j")
+metadata/_edit_group_ = true
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Drinks/Bottle2"]
+polygon = PackedVector2Array(-18, -176, -19, -61, -55, -27, -55, 161, -44, 174, 42, 177, 55, 162, 55, -30, 19, -65, 18, -176)
+
+[node name="Sprite2D" type="Sprite2D" parent="Drinks/Bottle2"]
+material = SubResource("ShaderMaterial_dguys")
+texture = ExtResource("2_grsh6")
+
+[node name="Bottle1" type="Area2D" parent="Drinks"]
+position = Vector2(-550, 221)
+scale = Vector2(0.76182, 0.76182)
+script = ExtResource("3_dguys")
+key = &"Джин"
+drink = ExtResource("6_w82d0")
+metadata/_edit_group_ = true
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Drinks/Bottle1"]
+polygon = PackedVector2Array(-18, -176, -19, -61, -55, -27, -55, 161, -44, 174, 42, 177, 55, 162, 55, -30, 19, -65, 18, -176)
+
+[node name="Sprite2D" type="Sprite2D" parent="Drinks/Bottle1"]
+material = SubResource("ShaderMaterial_rj2d4")
+texture = ExtResource("2_grsh6")
+
+[node name="Bottle3" type="Area2D" parent="Drinks"]
+position = Vector2(-328, 224)
+scale = Vector2(0.773364, 0.773364)
+script = ExtResource("3_dguys")
+key = &"Виски"
+drink = ExtResource("11_inta4")
+metadata/_edit_group_ = true
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Drinks/Bottle3"]
+polygon = PackedVector2Array(-18, -176, -19, -61, -55, -27, -55, 161, -44, 174, 42, 177, 55, 162, 55, -30, 19, -65, 18, -176)
+
+[node name="Sprite2D" type="Sprite2D" parent="Drinks/Bottle3"]
+material = ExtResource("10_w82d0")
+texture = ExtResource("2_grsh6")
+
+[node name="Toppings" type="Node" parent="."]
+
+[node name="Topping_1" type="Area2D" parent="Toppings"]
+position = Vector2(289, 289)
+script = ExtResource("15_pcjn2")
+topping = ExtResource("16_rb0y5")
+metadata/_edit_group_ = true
+
+[node name="Sprite2D" type="Sprite2D" parent="Toppings/Topping_1"]
+material = SubResource("ShaderMaterial_pcjn2")
+scale = Vector2(0.237976, 0.237977)
+texture = ExtResource("16_mw2s4")
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Toppings/Topping_1"]
+polygon = PackedVector2Array(-49, -21, -9, -50, 56, -1, 57, 25, 20, 59, -26, 58, -59, 29, -62, 1)
+
+[node name="Topping_2" type="Area2D" parent="Toppings"]
+position = Vector2(428, 289)
+script = ExtResource("15_pcjn2")
+topping = ExtResource("18_dwuxu")
+metadata/_edit_group_ = true
+
+[node name="Sprite2D" type="Sprite2D" parent="Toppings/Topping_2"]
+material = SubResource("ShaderMaterial_ipxxv")
+scale = Vector2(0.237976, 0.237977)
+texture = ExtResource("17_mw2s4")
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Toppings/Topping_2"]
+position = Vector2(6, -10)
+polygon = PackedVector2Array(-49, -21, -24, -36, 10, -35, 56, -1, 57, 25, 20, 59, -26, 58, -64, 27, -62, 1)
+
+[node name="Other" type="Node" parent="."]
+
+[node name="Tips" type="Node" parent="."]
+
+[node name="Marker2D" type="Marker2D" parent="Tips"]
+position = Vector2(-364, 28)
+
+[node name="Marker2D2" type="Marker2D" parent="Tips"]
+position = Vector2(-304, 17)
+
+[node name="Marker2D3" type="Marker2D" parent="Tips"]
+position = Vector2(-323, 46)
+
+[node name="Marker2D4" type="Marker2D" parent="Tips"]
+position = Vector2(-269, 32)
+
+[node name="EarnedMoneyLabel" type="Label" parent="."]
+unique_name_in_owner = true
+offset_left = -617.0
+offset_top = -332.0
+offset_right = -550.0
+offset_bottom = -282.0
+theme_override_colors/font_color = Color(0.580392, 1, 0, 1)
+theme_override_constants/outline_size = 10
+theme_override_font_sizes/font_size = 36
+text = "0"
+horizontal_alignment = 2
+
+[connection signal="input_event" from="Cap" to="Cap" method="_on_input_event"]
+[connection signal="mouse_entered" from="Cap" to="Cap" method="_on_mouse_entered"]
+[connection signal="mouse_exited" from="Cap" to="Cap" method="_on_mouse_exited"]
+[connection signal="input_event" from="CocktailGlass" to="CocktailGlass" method="_on_input_event"]
+[connection signal="mouse_entered" from="CocktailGlass" to="CocktailGlass" method="_on_mouse_entered"]
+[connection signal="mouse_exited" from="CocktailGlass" to="CocktailGlass" method="_on_mouse_exited"]
+[connection signal="input_event" from="Drinks/Bottle2" to="Drinks/Bottle2" method="_on_input_event"]
+[connection signal="mouse_entered" from="Drinks/Bottle2" to="Drinks/Bottle2" method="_on_mouse_entered"]
+[connection signal="mouse_exited" from="Drinks/Bottle2" to="Drinks/Bottle2" method="_on_mouse_exited"]
+[connection signal="input_event" from="Drinks/Bottle1" to="Drinks/Bottle1" method="_on_input_event"]
+[connection signal="mouse_entered" from="Drinks/Bottle1" to="Drinks/Bottle1" method="_on_mouse_entered"]
+[connection signal="mouse_exited" from="Drinks/Bottle1" to="Drinks/Bottle1" method="_on_mouse_exited"]
+[connection signal="input_event" from="Drinks/Bottle3" to="Drinks/Bottle3" method="_on_input_event"]
+[connection signal="mouse_entered" from="Drinks/Bottle3" to="Drinks/Bottle3" method="_on_mouse_entered"]
+[connection signal="mouse_exited" from="Drinks/Bottle3" to="Drinks/Bottle3" method="_on_mouse_exited"]
+[connection signal="input_event" from="Toppings/Topping_1" to="Toppings/Topping_1" method="_on_input_event"]
+[connection signal="mouse_entered" from="Toppings/Topping_1" to="Toppings/Topping_1" method="_on_mouse_entered"]
+[connection signal="mouse_exited" from="Toppings/Topping_1" to="Toppings/Topping_1" method="_on_mouse_exited"]
+[connection signal="input_event" from="Toppings/Topping_2" to="Toppings/Topping_2" method="_on_input_event"]
+[connection signal="mouse_entered" from="Toppings/Topping_2" to="Toppings/Topping_2" method="_on_mouse_entered"]
+[connection signal="mouse_exited" from="Toppings/Topping_2" to="Toppings/Topping_2" method="_on_mouse_exited"]

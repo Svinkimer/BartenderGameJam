@@ -1,0 +1,9 @@
+[gd_resource type="Resource" script_class="ToppingPreset" load_steps=2 format=3 uid="uid://7gpxth7fjkll"]
+
+[ext_resource type="Script" uid="uid://th6rgm31jnch" path="res://Scripts/toppings/topping_preset.gd" id="1_f602e"]
+
+[resource]
+script = ExtResource("1_f602e")
+name = &"Ягоды"
+cost = 5
+metadata/_custom_type_script = "uid://th6rgm31jnch"
