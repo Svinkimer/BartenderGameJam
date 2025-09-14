@@ -39,6 +39,41 @@ func add_drink_in_mixer(ingredient: IngredientPreset) -> bool:
 
 #endregion
 
+#region MANAGEMENT OF TOPPINGS
+var cocktail_is_poisoned: bool = false
+
+var toppings_in_cocktail: Dictionary[ToppingPreset, bool] = {
+	preload("uid://dmn8rm05sjufe"): false,
+	preload("uid://7gpxth7fjkll"): false,
+}
+
+func add_topping_to_cocktail(new_topping: ToppingPreset):
+	if mixed_cocktail == null_cocktail:
+		print("No cocktail to add topping at")
+		return;
+		
+	if toppings_in_cocktail[new_topping]:
+		print("You are repeating used topping")
+		return;
+	
+	if new_topping.explodes_with == mixed_cocktail:
+		ending_drink_exploded()
+	
+	if new_topping.poisons_with == mixed_cocktail:
+		cocktail_is_poisoned = true
+		
+	
+	
+	toppings_in_cocktail[new_topping] = true;
+	var new_label: Label = Label.new()
+	new_label.text = new_topping.name
+	
+	var label_container: VBoxContainer = get_tree().root.get_node("BaseScene").get_node("%ToppingsList")
+	
+	label_container.add_child(new_label)
+	
+#endregion
+
 #region MIXING COCKTAILS
 var mixed_cocktail_label: Label
 var null_cocktail: CocktailPreset = preload("uid://b14rl7maix6a3")
@@ -75,7 +110,6 @@ func clear_drinks_in_mixer() -> void:
 
 #endregion
 
-
 #region SPAWN OF CLIENTS
 var available_cocktails : Array[CocktailPreset] = [
 	preload("uid://c681os1lt7nct"), # black-russian
@@ -111,7 +145,6 @@ func create_client():
 	
 #endregion
 
-
 #region MAKING ORDER
 var ordered_cocktail_label: Label
 var ordered_cocktail: CocktailPreset = null_cocktail : 
@@ -129,12 +162,53 @@ var current_client: Client
 
 #endregion
 
-
-#region GIVING ORDER
+#region SERVING ORDER
 func serve_order()-> void:
-	if mixed_cocktail != null_cocktail and ordered_cocktail == mixed_cocktail:
+	if mixed_cocktail == null_cocktail:
+		return
+	
+	if cocktail_is_poisoned:
+		cocktail_is_poisoned = false
+		ending_poisoned_client()
+	
+	if ordered_cocktail == mixed_cocktail:
 		current_client.drink_right_order()
 		mixed_cocktail = null_cocktail
 		print("You made correct cocktail!")
 
+func give_tips():
+	pass
+	
+#endregion
+
+#region ENDINGS
+func ending_win():
+	print("Hurray! You won - 1000 space buckses earned")
+	end_game()
+
+func ending_poisoned_client():
+	print("Oh, hell! You poisoned our client!!!")
+	end_game()
+	
+func ending_drink_exploded():
+	print("KABO-O-O-OM! Drink suddenly exploded!!!")
+	end_game()
+
+func ending_taxes_not_paied():
+	print("Someone didn't pay their taxes, I see? Mua-ha-ha-ha!")
+	end_game()
+	
+func ending_clients_unhappy():
+	print("A crowd of unhappy clients came to kill you.")
+	end_game()
+
+func end_game():
+	print("GAME OVER")
+	
+	await get_tree().create_timer(1.0).timeout
+	get_tree().quit()
+#endregion
+
+#region UNHAPPY CLIENTS
+var unhappy_clents_count: int = 0
 #endregion

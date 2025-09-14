@@ -1,0 +1,25 @@
+[gd_scene load_steps=5 format=3 uid="uid://cci63fnvep627"]
+
+[ext_resource type="Script" uid="uid://bmvju8b2u4q3" path="res://area_2d.gd" id="1_apcjs"]
+[ext_resource type="Shader" uid="uid://cgavux134173s" path="res://Scripts/highlight.gdshader" id="2_8h6y1"]
+[ext_resource type="Texture2D" uid="uid://c0vys3st1c2t3" path="res://Assets/Graphics/tips.png" id="2_r746v"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_aot73"]
+shader = ExtResource("2_8h6y1")
+shader_parameter/intensity = 0.0
+
+[node name="Area2D" type="Area2D"]
+scale = Vector2(0.341254, 0.341254)
+script = ExtResource("1_apcjs")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+material = SubResource("ShaderMaterial_aot73")
+scale = Vector2(0.465447, 0.465447)
+texture = ExtResource("2_r746v")
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="."]
+scale = Vector2(1.70981, 1.70981)
+polygon = PackedVector2Array(43.9556, 20.5126, 43.9556, -14.6519, -5.86074, -41.0252, -20.5126, -41.0252, -43.9556, -14.6519, -43.9556, 20.5126, -23.443, 38.0948, 23.443, 41.0252)
+
+[connection signal="mouse_entered" from="." to="." method="_on_mouse_entered"]
+[connection signal="mouse_exited" from="." to="." method="_on_mouse_exited"]

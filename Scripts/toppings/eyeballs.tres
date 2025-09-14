@@ -1,0 +1,10 @@
+[gd_resource type="Resource" script_class="ToppingPreset" load_steps=3 format=3 uid="uid://dmn8rm05sjufe"]
+
+[ext_resource type="Script" uid="uid://th6rgm31jnch" path="res://Scripts/toppings/topping_preset.gd" id="1_dax8u"]
+[ext_resource type="Resource" uid="uid://b2vun11q07vnj" path="res://Scripts/cocktails/pina-colada.tres" id="1_s7a3j"]
+
+[resource]
+script = ExtResource("1_dax8u")
+name = &"Глазки"
+explodes_with = ExtResource("1_s7a3j")
+metadata/_custom_type_script = "uid://th6rgm31jnch"
