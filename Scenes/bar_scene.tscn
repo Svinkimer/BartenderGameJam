@@ -1,9 +1,10 @@
-[gd_scene load_steps=20 format=3 uid="uid://nexu324ps2np"]
+[gd_scene load_steps=21 format=3 uid="uid://nexu324ps2np"]
 
-[ext_resource type="Texture2D" uid="uid://bp6mr54jpka4m" path="res://Assets/Graphics/barBacrground.jpg" id="1_dguys"]
 [ext_resource type="Script" uid="uid://kxs6hx601h0l" path="res://Scripts/base_scene_script.gd" id="1_w82d0"]
 [ext_resource type="Texture2D" uid="uid://mq01g4du4bav" path="res://Assets/Graphics/bottle-asset.png" id="2_grsh6"]
+[ext_resource type="Texture2D" uid="uid://cqk4tvlef13s8" path="res://Assets/Graphics/bacrground.png" id="2_lmx1c"]
 [ext_resource type="Script" uid="uid://wc3t5o6oddbj" path="res://Scripts/bottle_script_new.gd" id="3_dguys"]
+[ext_resource type="Texture2D" uid="uid://ci34sindc0fk7" path="res://Assets/Graphics/bar.png" id="3_lmx1c"]
 [ext_resource type="Texture2D" uid="uid://bj6wa8lkswbuf" path="res://Assets/Graphics/shaker.webp" id="3_v4ssl"]
 [ext_resource type="Shader" uid="uid://cgavux134173s" path="res://Scripts/highlight.gdshader" id="4_rj2d4"]
 [ext_resource type="Resource" uid="uid://bd7w6ca452nqg" path="res://Scripts/ingredients/tonic.tres" id="4_vgg6j"]
@@ -41,11 +42,16 @@ script = ExtResource("1_w82d0")
 [node name="AlienSpawningPoint" type="Marker2D" parent="."]
 position = Vector2(-936, 57)
 
-[node name="BarBacrground" type="Sprite2D" parent="."]
+[node name="Bacrground" type="Sprite2D" parent="."]
 z_index = -2
-position = Vector2(-6.9855, 6.50002)
-scale = Vector2(0.68436, 0.668734)
-texture = ExtResource("1_dguys")
+position = Vector2(-13.0005, 32.875)
+scale = Vector2(0.723834, 0.723843)
+texture = ExtResource("2_lmx1c")
+
+[node name="Bar" type="Sprite2D" parent="."]
+position = Vector2(-0.203899, 187.234)
+scale = Vector2(0.666454, 0.609679)
+texture = ExtResource("3_lmx1c")
 
 [node name="Bottle2" type="Area2D" parent="."]
 position = Vector2(-440, 185)
