@@ -8,11 +8,13 @@ const ALIEN_WAITING_TIME: float = 5.0
 var temper_tween: Tween;
 var position_tween: Tween;
 var starting_position: Vector2
+var cur_preset: AlienPreset
 
 func initiate(preset: AlienPreset):
 	texture = preset.texture
 	$Label.text = preset.name
 	$Label.add_theme_color_override("font_color", preset.namecolor)
+	cur_preset = preset
 
 func _ready() -> void:
 	starting_position = position
@@ -49,7 +51,9 @@ func update_temper_display( progress_val: float):
 
 func place_order():
 	GameState.pick_cocktail()
-	say("Hey, I want '" + GameState.ordered_cocktail.name + "'", 1.5)
+	# say("Hey, I want '" + GameState.ordered_cocktail.name + "'", 1.5)
+	var greet = cur_preset.greeting_line[randi() % cur_preset.greeting_line.size()]
+	say(greet + GameState.ordered_cocktail.name + "'", 1.5)
 	GameState.current_client = self
 	temper_tween = create_tween()
 	temper_tween.tween_method(update_temper_display, 0.0, 100.0, ALIEN_WAITING_TIME);
@@ -57,11 +61,15 @@ func place_order():
 	
 func temper_over():
 	leave_scene()
-	say("Fuck you", 1.0)
+	# say("Fuck you", 1.0)
+	var reply = cur_preset.times_up_reply[randi() % cur_preset.times_up_reply.size()]
+	say(reply, 1.0)
 
 func drink_right_order():
 	temper_tween.kill()
-	say("Thank you, sunshine!", 1.0)
+	# say("Thank you, sunshine!", 1.0)
+	var reply = cur_preset.wrong_drink_reply[randi() % cur_preset.wrong_drink_reply.size()]
+	say(reply, 1.0)
 	leave_scene()
 
 func say(replic: String, time: float):

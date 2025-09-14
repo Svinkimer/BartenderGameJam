@@ -1,4 +1,4 @@
-[gd_scene load_steps=7 format=3 uid="uid://cj6012mk42p4q"]
+[gd_scene load_steps=14 format=3 uid="uid://cj6012mk42p4q"]
 
 [ext_resource type="Texture2D" uid="uid://bj6wa8lkswbuf" path="res://Assets/Graphics/shaker.webp" id="1_y63qt"]
 [ext_resource type="Script" uid="uid://blm6sq3hka6uw" path="res://Scripts/shaker.gd" id="2_n1qj4"]
@@ -6,9 +6,115 @@
 [ext_resource type="Texture2D" uid="uid://coto8obop2sla" path="res://Assets/Graphics/bar_round_gloss_large.svg" id="4_dbqg4"]
 [ext_resource type="Texture2D" uid="uid://byxaugdhh1u02" path="res://Assets/Graphics/double-arrow.png" id="5_ojfl1"]
 
+[sub_resource type="Animation" id="Animation_h7fvy"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(576, 324)]
+}
+
+[sub_resource type="Animation" id="Animation_rgku0"]
+resource_name = "horizontal_shake"
+length = 4.0
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 1, 2, 3, 4),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1),
+"update": 0,
+"values": [Vector2(576, 324), Vector2(560, 324), Vector2(576, 324), Vector2(592, 324), Vector2(576, 324)]
+}
+
+[sub_resource type="Animation" id="Animation_wcjym"]
+resource_name = "vertical_shake"
+length = 4.0
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 1, 2, 3, 4),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1),
+"update": 0,
+"values": [Vector2(576, 324), Vector2(576, 340), Vector2(576, 324), Vector2(576, 308), Vector2(576, 324)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_rgku0"]
+_data = {
+&"RESET": SubResource("Animation_h7fvy"),
+&"horizontal_shake": SubResource("Animation_rgku0"),
+&"vertical_shake": SubResource("Animation_wcjym")
+}
+
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_3cns1"]
 radius = 90.473
 height = 395.986
+
+[sub_resource type="Animation" id="Animation_ojfl1"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:scale")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(0.3, 0.3)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath(".:visible")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [false]
+}
+
+[sub_resource type="Animation" id="Animation_dbqg4"]
+resource_name = "pulse"
+length = 2.0
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:scale")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 1, 2),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [Vector2(0.3, 0.3), Vector2(0.33, 0.33), Vector2(0.3, 0.3)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_wcjym"]
+_data = {
+&"RESET": SubResource("Animation_ojfl1"),
+&"pulse": SubResource("Animation_dbqg4")
+}
 
 [node name="Shaker" type="AnimatableBody2D"]
 script = ExtResource("2_n1qj4")
@@ -18,6 +124,12 @@ position = Vector2(576, 324)
 rotation = 0.598648
 scale = Vector2(0.5, 0.5)
 texture = ExtResource("1_y63qt")
+
+[node name="ShakerAnimation" type="AnimationPlayer" parent="Shaker"]
+libraries = {
+&"": SubResource("AnimationLibrary_rgku0")
+}
+speed_scale = 4.0
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 position = Vector2(576, 324)
@@ -32,7 +144,6 @@ offset_bottom = 480.0
 rotation = -1.5708
 scale = Vector2(3, 3)
 step = 0.01
-value = 50.0
 texture_under = ExtResource("3_3cns1")
 texture_progress = ExtResource("4_dbqg4")
 
@@ -40,8 +151,15 @@ texture_progress = ExtResource("4_dbqg4")
 wait_time = 2.0
 
 [node name="ArrowShakeDirection" type="Sprite2D" parent="."]
+visible = false
 position = Vector2(170, 324)
 scale = Vector2(0.3, 0.3)
 texture = ExtResource("5_ojfl1")
+
+[node name="ArrowAnimation" type="AnimationPlayer" parent="ArrowShakeDirection"]
+libraries = {
+&"": SubResource("AnimationLibrary_wcjym")
+}
+speed_scale = 2.2
 
 [connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]
