@@ -12,6 +12,8 @@ extends AnimatableBody2D
 var is_pressed := false
 var init_mouse_pos := Vector2.ZERO
 
+var is_mixed := false
+
 enum SHAKE_DIRECTIONS {VERTICAL, HORIZONTAL}
 var shake_direction = 0
 
@@ -59,7 +61,7 @@ func detect_shake(shake_direction, mouse_pos):
 			shaker_animation.play("horizontal_shake")
 	
 	if progress_bar.value == progress_bar.max_value:
-		is_pressed = false
+		is_mixed = true
 		arrow_animation.play("RESET")
 		shaker_animation.play("RESET")
 		arrow_shake_direction.visible = false
