@@ -7,4 +7,5 @@
 script = ExtResource("1_dax8u")
 name = &"Глазки"
 explodes_with = ExtResource("1_s7a3j")
+cost = 13
 metadata/_custom_type_script = "uid://th6rgm31jnch"

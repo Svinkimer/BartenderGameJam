@@ -14,6 +14,12 @@ func _on_mouse_entered() -> void:
 	tween = create_tween()
 	tween.tween_method(setup_highlight_intensity, shader_intensity, 1.0, 0.2)
 	
+func _on_input_event(viewport: Node, event: InputEvent, shape_idx: int) -> void:
+	if (event is InputEventMouseButton and event.pressed):
+		on_click()
+		
+func on_click():
+	pass
 
 
 

@@ -9,4 +9,5 @@
 script = ExtResource("2_csty5")
 name = &"Пина-колада"
 ingredients = Array[ExtResource("1_tn82s")]([ExtResource("2_33ulq"), ExtResource("3_x6nt7")])
+cost = 10
 metadata/_custom_type_script = "uid://ddbigfcnk37ea"

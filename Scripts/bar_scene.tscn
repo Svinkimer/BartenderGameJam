@@ -1,4 +1,4 @@
-[gd_scene load_steps=28 format=3 uid="uid://nexu324ps2np"]
+[gd_scene load_steps=27 format=3 uid="uid://nexu324ps2np"]
 
 [ext_resource type="Texture2D" uid="uid://bp6mr54jpka4m" path="res://Assets/Graphics/barBacrground.jpg" id="1_dguys"]
 [ext_resource type="Script" uid="uid://kxs6hx601h0l" path="res://Scripts/base_scene_script.gd" id="1_w82d0"]
@@ -19,7 +19,6 @@
 [ext_resource type="Resource" uid="uid://7gpxth7fjkll" path="res://Scripts/toppings/strawberries.tres" id="16_rb0y5"]
 [ext_resource type="Texture2D" uid="uid://db7hikm5rw6l1" path="res://Assets/Graphics/Topping_2.png" id="17_mw2s4"]
 [ext_resource type="Resource" uid="uid://dmn8rm05sjufe" path="res://Scripts/toppings/eyeballs.tres" id="18_dwuxu"]
-[ext_resource type="PackedScene" uid="uid://cci63fnvep627" path="res://Scenes/tips_scene.tscn" id="20_dwuxu"]
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_iqjmv"]
 radius = 27.0
@@ -209,8 +208,29 @@ polygon = PackedVector2Array(-49, -21, -24, -36, 10, -35, 56, -1, 57, 25, 20, 59
 
 [node name="Tips" type="Node" parent="."]
 
-[node name="Area2D" parent="Tips" instance=ExtResource("20_dwuxu")]
-position = Vector2(-281, 12)
+[node name="Marker2D" type="Marker2D" parent="Tips"]
+position = Vector2(-364, 28)
+
+[node name="Marker2D2" type="Marker2D" parent="Tips"]
+position = Vector2(-304, 17)
+
+[node name="Marker2D3" type="Marker2D" parent="Tips"]
+position = Vector2(-323, 46)
+
+[node name="Marker2D4" type="Marker2D" parent="Tips"]
+position = Vector2(-269, 32)
+
+[node name="EarnedMoneyLabel" type="Label" parent="."]
+unique_name_in_owner = true
+offset_left = -617.0
+offset_top = -332.0
+offset_right = -550.0
+offset_bottom = -282.0
+theme_override_colors/font_color = Color(0.580392, 1, 0, 1)
+theme_override_constants/outline_size = 10
+theme_override_font_sizes/font_size = 36
+text = "0"
+horizontal_alignment = 2
 
 [connection signal="input_event" from="Cap" to="Cap" method="_on_input_event"]
 [connection signal="mouse_entered" from="Cap" to="Cap" method="_on_mouse_entered"]

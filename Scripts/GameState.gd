@@ -1,6 +1,5 @@
 extends Node
 
-
 #region MANAGEMENT OF INGREDIENTS
 const MAX_DRINKS_IN_MIX: int = 3
 
@@ -61,8 +60,6 @@ func add_topping_to_cocktail(new_topping: ToppingPreset):
 	
 	if new_topping.poisons_with == mixed_cocktail:
 		cocktail_is_poisoned = true
-		
-	
 	
 	toppings_in_cocktail[new_topping] = true;
 	var new_label: Label = Label.new()
@@ -71,6 +68,14 @@ func add_topping_to_cocktail(new_topping: ToppingPreset):
 	var label_container: VBoxContainer = get_tree().root.get_node("BaseScene").get_node("%ToppingsList")
 	
 	label_container.add_child(new_label)
+
+func clear_toppings_in_cocktail():
+	for key in toppings_in_cocktail.keys():
+		toppings_in_cocktail[key] = false
+		
+	var label_container: VBoxContainer = get_tree().root.get_node("BaseScene").get_node("%ToppingsList")
+	for child in label_container.get_children():
+		child.queue_free()
 	
 #endregion
 
@@ -172,13 +177,74 @@ func serve_order()-> void:
 		ending_poisoned_client()
 	
 	if ordered_cocktail == mixed_cocktail:
+		
+		cocktail_cost = mixed_cocktail.cost
+		#print("Serving cocktail: ", mixed_cocktail.name)
+		#print("Base cocktail cost: ", mixed_cocktail.cost)
+		for key: ToppingPreset in toppings_in_cocktail.keys():
+			if toppings_in_cocktail[key]:
+				cocktail_cost += key.cost
+		#print("Total price is: ", cocktail_cost)
+		
 		current_client.drink_right_order()
 		mixed_cocktail = null_cocktail
-		print("You made correct cocktail!")
+		#print("You made correct cocktail!")
+	
+	clear_toppings_in_cocktail()
+	give_tips()
+	
+#endregion
+
+#region TIPS
+var earned_money: int = 0 : 
+	set(value):
+		earned_money = value
+		get_base().get_node("%EarnedMoneyLabel").text = str(value)
+		
+		if value >= 900 and clients_served_since_tax_pay >= 10:
+			ending_taxes_not_paied()
+		if value >= 1000:
+			ending_win()
+
+var clients_served_since_tax_pay = 0
+
+
+
+var tips_on_scene: Array[Tips] = [null, null, null, null]
+var tips_scene = preload("uid://cci63fnvep627") # tips
+
+var cocktail_cost: int = 0
 
 func give_tips():
-	pass
+	var tips_instances_node: Node = get_tree().root.get_node("BaseScene").get_node("Tips")
+	var no_empty_slots = true
 	
+	
+	for i in range(len(tips_on_scene)):
+		if tips_on_scene[i] == null:
+			no_empty_slots = false
+			var new_tip: Tips = tips_scene.instantiate()
+			
+			tips_instances_node.get_child(i).add_child(new_tip)
+			new_tip.setup_reward(cocktail_cost)
+			new_tip.idx = i
+			
+			tips_on_scene[i] = new_tip
+			clients_served_since_tax_pay+=1
+			break
+			
+	if no_empty_slots:
+		tips_on_scene[0].add_reward(cocktail_cost)
+
+func collect_tips(tips_node_index: int):
+	var collected: Tips = tips_on_scene[tips_node_index]
+	earned_money += collected.reward
+	
+	print(earned_money)
+	tips_on_scene[tips_node_index] = null
+	collected.queue_free()
+	
+
 #endregion
 
 #region ENDINGS
@@ -211,4 +277,9 @@ func end_game():
 
 #region UNHAPPY CLIENTS
 var unhappy_clents_count: int = 0
+#endregion
+
+#region TOOLS
+func get_base() -> Node2D:
+	return get_tree().root.get_node("BaseScene")
 #endregion
