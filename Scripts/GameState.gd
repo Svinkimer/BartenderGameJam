@@ -133,13 +133,15 @@ var alien_presets: Array[AlienPreset] = [
 ]
 
 func _ready() -> void:
-	print("Creating new alien")
-	await get_tree().create_timer(1.3).timeout
-	
+	get_tree().connect("tree_changed", _on_tree_changed)
+
+func _on_tree_changed():
 	if get_tree().root.has_node("BaseScene"):
+		get_tree().disconnect("tree_changed", _on_tree_changed)
+		print("Creating a new alien")
 		create_client()
-	
-	
+
+
 func try_to_spawn_next_client() -> void:
 	create_client()
 	# also here we'll add some checks "unhappy clients" ending condition
@@ -285,3 +287,18 @@ var unhappy_clents_count: int = 0
 func get_base() -> Node2D:
 	return get_tree().root.get_node("BaseScene")
 #endregion
+
+var tutorial: Control
+
+func _input(event: InputEvent) -> void:
+	if event is InputEventKey:
+		if event.pressed and event.keycode == KEY_T:
+			var current_scene_node = get_tree().current_scene
+			print(str(current_scene_node))
+			
+			var tutorial_scene = load("uid://c4yc8r65ol6af")
+			tutorial = tutorial_scene.instantiate()
+			get_tree().root.add_child(tutorial)
+			
+			get_tree().root.get_node("BaseScene").process_mode = Node.PROCESS_MODE_DISABLED
+			
