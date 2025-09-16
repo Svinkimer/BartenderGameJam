@@ -6,15 +6,15 @@ extends AnimatableBody2D
 @onready var shaker_animation: AnimationPlayer = $Shaker/ShakerAnimation
 @onready var arrow_animation: AnimationPlayer = $ArrowShakeDirection/ArrowAnimation
 
-@export var increment := 0.2
+@export var increment := 0.15
 @onready var timer: Timer = $Timer
 
 var is_pressed := false
 
-var is_mixed := false
-
 enum SHAKE_DIRECTIONS {VERTICAL, HORIZONTAL}
 var shake_direction = 0
+
+@export var is_mixed := false
 
 func generate_shake_direction() -> void:
 	var rand = randf()
@@ -60,6 +60,12 @@ func detect_shake(shake_direction, mouse_relative: Vector2):
 		arrow_animation.play("RESET")
 		shaker_animation.play("RESET")
 		arrow_shake_direction.visible = false
+		
+		var overlay_scene = get_node("/root/ShakerScene")
+		if overlay_scene:
+			overlay_scene.queue_free()
+		
+		get_tree().root.get_node("BaseScene").process_mode = Node.PROCESS_MODE_INHERIT
 
 func _input(event: InputEvent) -> void:
 	if is_pressed and event is InputEventMouseMotion:

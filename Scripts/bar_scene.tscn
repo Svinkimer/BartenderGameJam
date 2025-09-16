@@ -1,4 +1,4 @@
-[gd_scene load_steps=27 format=3 uid="uid://nexu324ps2np"]
+[gd_scene load_steps=30 format=3 uid="uid://nexu324ps2np"]
 
 [ext_resource type="Texture2D" uid="uid://bp6mr54jpka4m" path="res://Assets/Graphics/barBacrground.jpg" id="1_dguys"]
 [ext_resource type="Script" uid="uid://kxs6hx601h0l" path="res://Scripts/base_scene_script.gd" id="1_w82d0"]
@@ -19,6 +19,8 @@
 [ext_resource type="Resource" uid="uid://7gpxth7fjkll" path="res://Scripts/toppings/strawberries.tres" id="16_rb0y5"]
 [ext_resource type="Texture2D" uid="uid://db7hikm5rw6l1" path="res://Assets/Graphics/Topping_2.png" id="17_mw2s4"]
 [ext_resource type="Resource" uid="uid://dmn8rm05sjufe" path="res://Scripts/toppings/eyeballs.tres" id="18_dwuxu"]
+[ext_resource type="Texture2D" uid="uid://s3g01e2rrkfv" path="res://Assets/Graphics/dumplings.png" id="20_03bn2"]
+[ext_resource type="Script" uid="uid://c40lmyurl8tuf" path="res://Scripts/dumplings.gd" id="20_jdado"]
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_iqjmv"]
 radius = 27.0
@@ -47,6 +49,9 @@ shader_parameter/intensity = 0.0
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_ipxxv"]
 shader = ExtResource("4_rj2d4")
 shader_parameter/intensity = 0.0
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_jdado"]
+radius = 47.8017
 
 [node name="BaseScene" type="Node2D"]
 script = ExtResource("1_w82d0")
@@ -232,6 +237,18 @@ theme_override_font_sizes/font_size = 36
 text = "0"
 horizontal_alignment = 2
 
+[node name="Dumplings" type="Area2D" parent="."]
+script = ExtResource("20_jdado")
+
+[node name="Sprite2D" type="Sprite2D" parent="Dumplings"]
+position = Vector2(247.313, 28.9375)
+scale = Vector2(0.174023, 0.193945)
+texture = ExtResource("20_03bn2")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Dumplings"]
+position = Vector2(248, 28)
+shape = SubResource("CircleShape2D_jdado")
+
 [connection signal="input_event" from="Cap" to="Cap" method="_on_input_event"]
 [connection signal="mouse_entered" from="Cap" to="Cap" method="_on_mouse_entered"]
 [connection signal="mouse_exited" from="Cap" to="Cap" method="_on_mouse_exited"]
@@ -253,3 +270,4 @@ horizontal_alignment = 2
 [connection signal="input_event" from="Toppings/Topping_2" to="Toppings/Topping_2" method="_on_input_event"]
 [connection signal="mouse_entered" from="Toppings/Topping_2" to="Toppings/Topping_2" method="_on_mouse_entered"]
 [connection signal="mouse_exited" from="Toppings/Topping_2" to="Toppings/Topping_2" method="_on_mouse_exited"]
+[connection signal="input_event" from="Dumplings" to="Dumplings" method="_on_input_event"]

@@ -100,14 +100,21 @@ func mix_cocktail() -> CocktailPreset:
 				
 				
 		if all_ingredients_present:
+			get_tree().root.get_node("BaseScene/Shaker").visible = false
+			
+			var shaker_scene = load("uid://cj6012mk42p4q") #shaker.tscn
+			var shaker = shaker_scene.instantiate()
+			get_tree().root.add_child(shaker)
+			
+			get_tree().root.get_node("BaseScene").process_mode = Node.PROCESS_MODE_DISABLED
+			
 			print("You are shaking cocktail:: ", cocktail.name)
-			clear_drinks_in_mixer()
-			mixed_cocktail = cocktail
-	
+			
+			if get_tree().root.get_node("ShakerScene").is_mixed:
+				clear_drinks_in_mixer()
+				mixed_cocktail = cocktail
 	
 	return mixed_cocktail
-
-
 
 func clear_drinks_in_mixer() -> void:
 	for key in drinks_in_mixer.keys():
@@ -289,16 +296,15 @@ func get_base() -> Node2D:
 #endregion
 
 var tutorial: Control
+var in_tutorial := false
 
 func _input(event: InputEvent) -> void:
-	if event is InputEventKey:
+	if event is InputEventKey and not in_tutorial:
 		if event.pressed and event.keycode == KEY_T:
-			var current_scene_node = get_tree().current_scene
-			print(str(current_scene_node))
+			in_tutorial = true
 			
 			var tutorial_scene = load("uid://c4yc8r65ol6af")
 			tutorial = tutorial_scene.instantiate()
 			get_tree().root.add_child(tutorial)
 			
 			get_tree().root.get_node("BaseScene").process_mode = Node.PROCESS_MODE_DISABLED
-			
