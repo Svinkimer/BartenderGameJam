@@ -6,6 +6,6 @@ extends Resource
 @export var namecolor: Color
 
 @export var greeting_line: Array[String] = []
-@export var good_drink_reply: Array[String] = []
+@export var right_drink_reply: Array[String] = []
 @export var wrong_drink_reply: Array[String] = []
 @export var times_up_reply: Array[String] = []

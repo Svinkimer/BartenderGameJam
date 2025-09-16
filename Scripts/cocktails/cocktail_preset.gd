@@ -4,3 +4,4 @@ extends Resource
 @export var name: StringName
 @export var ingredients: Array[IngredientPreset] = []
 @export var cost: int
+@export var client_line: String

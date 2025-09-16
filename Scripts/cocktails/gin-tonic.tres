@@ -10,4 +10,5 @@ script = ExtResource("2_p4q3f")
 name = &"Джин-Тоник"
 ingredients = Array[ExtResource("1_lo6nh")]([ExtResource("2_4r456"), ExtResource("3_tup5o")])
 cost = 15
+client_line = "May the force be with you!"
 metadata/_custom_type_script = "uid://ddbigfcnk37ea"
