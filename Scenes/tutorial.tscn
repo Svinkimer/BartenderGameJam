@@ -1,3 +1,90 @@
-[gd_scene format=3 uid="uid://c4yc8r65ol6af"]
+[gd_scene load_steps=7 format=3 uid="uid://c4yc8r65ol6af"]
 
-[node name="Tutorial" type="Node2D"]
+[ext_resource type="Script" uid="uid://cnsdusgjo0xi3" path="res://Scripts/tutorial.gd" id="1_ka2pi"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_ka2pi"]
+bg_color = Color(0.6, 0.6, 0.6, 0.5)
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_ka2pi"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_feyax"]
+bg_color = Color(1, 1, 1, 1)
+corner_radius_top_left = 8
+corner_radius_top_right = 8
+corner_radius_bottom_right = 8
+corner_radius_bottom_left = 8
+shadow_size = 3
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_omtrn"]
+corner_radius_top_left = 8
+corner_radius_top_right = 8
+corner_radius_bottom_right = 8
+corner_radius_bottom_left = 8
+shadow_size = 3
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_i6t4g"]
+bg_color = Color(0.877616, 0.877616, 0.877616, 1)
+corner_radius_top_left = 8
+corner_radius_top_right = 8
+corner_radius_bottom_right = 8
+corner_radius_bottom_left = 8
+shadow_size = 3
+
+[node name="Tutorial" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -640.0
+offset_top = -360.0
+offset_right = -640.0
+offset_bottom = -360.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_ka2pi")
+
+[node name="Panel" type="Panel" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_ka2pi")
+
+[node name="RichTextLabel" type="RichTextLabel" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_font_sizes/normal_font_size = 26
+theme_override_font_sizes/bold_font_size = 30
+bbcode_enabled = true
+
+[node name="Button" type="Button" parent="."]
+layout_mode = 1
+anchors_preset = 1
+anchor_left = 1.0
+anchor_right = 1.0
+offset_left = -48.0
+offset_top = 18.0
+offset_right = -18.0
+offset_bottom = 48.0
+grow_horizontal = 0
+theme_override_colors/font_hover_color = Color(0.588235, 0, 0.141176, 1)
+theme_override_colors/font_color = Color(0.586402, 0, 0.141059, 1)
+theme_override_colors/font_focus_color = Color(0.588235, 0, 0.141176, 1)
+theme_override_colors/font_pressed_color = Color(0.588235, 0, 0.141176, 1)
+theme_override_font_sizes/font_size = 18
+theme_override_styles/focus = SubResource("StyleBoxEmpty_ka2pi")
+theme_override_styles/hover = SubResource("StyleBoxFlat_feyax")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_omtrn")
+theme_override_styles/normal = SubResource("StyleBoxFlat_i6t4g")
+text = "X"
+
+[node name="Camera2D" type="Camera2D" parent="."]
+position = Vector2(640, 360)
+
+[connection signal="pressed" from="Button" to="." method="_on_button_pressed"]
