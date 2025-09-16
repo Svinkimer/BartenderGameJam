@@ -146,6 +146,12 @@ func _ready() -> void:
 	get_tree().connect("tree_changed", _on_tree_changed)
 
 func _on_tree_changed():
+	if get_tree() == null or not is_instance_valid(get_tree()):
+		return
+	
+	if get_tree().root == null:
+		return
+	
 	if get_tree().root.has_node("BaseScene"):
 		get_tree().disconnect("tree_changed", _on_tree_changed)
 		print("Creating a new alien")
