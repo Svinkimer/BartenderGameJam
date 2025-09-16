@@ -8,4 +8,5 @@ script = ExtResource("4_6gc54")
 name = &"NULL"
 ingredients = Array[ExtResource("1_imqxq")]([])
 cost = 0
+client_line = "It's empty!"
 metadata/_custom_type_script = "uid://ddbigfcnk37ea"

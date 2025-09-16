@@ -137,7 +137,10 @@ var alien_scene = preload("uid://dkc26c74e7e4b")
 var alien_presets: Array[AlienPreset] = [
 	preload("uid://b57ph1kf58bbg"),
 	preload("uid://5allly8fun65"),
+	preload("uid://ddy1ootv74mt6")
 ]
+
+var last_preset_id: int = -1
 
 func _ready() -> void:
 	get_tree().connect("tree_changed", _on_tree_changed)
@@ -156,7 +159,16 @@ func try_to_spawn_next_client() -> void:
 func create_client():
 	var new_alien: Client = alien_scene.instantiate()
 	new_alien.global_position = alien_spawning_point_position
-	new_alien.initiate(alien_presets[1])
+	
+	var available_ids = []
+	for i in alien_presets.size():
+		if i != last_preset_id:
+			available_ids.append(i)
+			
+	var id = available_ids[randi() % available_ids.size()]
+	last_preset_id = id
+	
+	new_alien.initiate(alien_presets[id])
 	get_tree().root.get_node("BaseScene").add_child(new_alien)
 	
 #endregion
@@ -200,6 +212,10 @@ func serve_order()-> void:
 		current_client.drink_right_order()
 		mixed_cocktail = null_cocktail
 		#print("You made correct cocktail!")
+	else:
+		current_client.drink_wrong_order()
+		mixed_cocktail = null_cocktail
+		return
 	
 	clear_toppings_in_cocktail()
 	give_tips()
