@@ -108,11 +108,10 @@ func mix_cocktail() -> CocktailPreset:
 			
 			get_tree().root.get_node("BaseScene").process_mode = Node.PROCESS_MODE_DISABLED
 			
-			print("You are shaking cocktail:: ", cocktail.name)
+			print("You are shaking a cocktail: ", cocktail.name)
 			
-			if get_tree().root.get_node("ShakerScene").is_mixed:
-				clear_drinks_in_mixer()
-				mixed_cocktail = cocktail
+			clear_drinks_in_mixer()
+			mixed_cocktail = cocktail
 	
 	return mixed_cocktail
 
@@ -157,6 +156,17 @@ func _on_tree_changed():
 		print("Creating a new alien")
 		create_client()
 
+var signal_connected := false
+
+func _process(_delta: float) -> void:
+	
+	if get_tree().root.has_node("BaseScene/Alien") and not signal_connected:
+		get_tree().root.get_node("BaseScene/Dumplings").connect("calm_the_client", _on_calm_the_client)
+		signal_connected = true
+
+func _on_calm_the_client():
+	print("Resetting the progress bar")
+	get_tree().root.get_node("BaseScene/Alien").update_temper_display(0)
 
 func try_to_spawn_next_client() -> void:
 	create_client()

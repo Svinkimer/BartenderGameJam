@@ -20,8 +20,6 @@ func _ready() -> void:
 	starting_position = position
 	enter_scene()
 
-	
-
 func enter_scene():
 	if position_tween:
 		print("ERROR: position_tween exists, when enter_scene is called")
@@ -31,7 +29,7 @@ func enter_scene():
 	await  position_tween.finished
 	place_order()
 	position_tween.kill()
-	
+
 func leave_scene():
 	if position_tween:
 		position_tween.kill()
@@ -58,7 +56,7 @@ func place_order():
 	temper_tween = create_tween()
 	temper_tween.tween_method(update_temper_display, 0.0, 100.0, ALIEN_WAITING_TIME);
 	temper_tween.finished.connect(temper_over)
-	
+
 func temper_over():
 	# say("Fuck you", 1.0)
 	var reply = cur_preset.times_up_reply[randi() % cur_preset.times_up_reply.size()]
@@ -85,3 +83,6 @@ func say(replic: String, time: float):
 	
 	await timer.timeout
 	$SpeechBubble.hide()
+
+func eat_a_dumpling():
+	pass

@@ -145,9 +145,6 @@ step = 0.01
 texture_under = ExtResource("3_3cns1")
 texture_progress = ExtResource("4_dbqg4")
 
-[node name="Timer" type="Timer" parent="."]
-wait_time = 2.0
-
 [node name="ArrowShakeDirection" type="Sprite2D" parent="."]
 visible = false
 position = Vector2(-420, 0)
@@ -160,6 +157,12 @@ libraries = {
 }
 speed_scale = 2.2
 
+[node name="ArrowTimer" type="Timer" parent="ArrowShakeDirection"]
+wait_time = 2.0
+
 [node name="Camera2D" type="Camera2D" parent="."]
 
-[connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]
+[node name="SceneTimer" type="Timer" parent="."]
+
+[connection signal="timeout" from="ArrowShakeDirection/ArrowTimer" to="." method="_on_arrow_timer_timeout"]
+[connection signal="timeout" from="SceneTimer" to="." method="_on_scene_timer_timeout"]
