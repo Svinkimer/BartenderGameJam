@@ -207,7 +207,6 @@ func pick_cocktail():
 
 var current_client: Client
 
-
 #endregion
 
 #region SERVING ORDER

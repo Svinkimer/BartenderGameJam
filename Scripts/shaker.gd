@@ -81,3 +81,5 @@ func quit_scene():
 		overlay_scene.queue_free()
 	
 	get_tree().root.get_node("BaseScene").process_mode = Node.PROCESS_MODE_INHERIT
+	
+	get_tree().root.get_node("BaseScene/Shaker").visible = true
