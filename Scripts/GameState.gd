@@ -87,6 +87,9 @@ var mixed_cocktail: CocktailPreset = null_cocktail :
 		mixed_cocktail = new_mix
 		mixed_cocktail_label.text = new_mix.name
 
+var waiting_for_shaker := false
+var current_cocktail: CocktailPreset
+
 func mix_cocktail() -> CocktailPreset:
 	
 	for cocktail in available_cocktails:
@@ -100,20 +103,29 @@ func mix_cocktail() -> CocktailPreset:
 				
 				
 		if all_ingredients_present:
+			current_cocktail = cocktail
+			waiting_for_shaker = true
+			
 			get_tree().root.get_node("BaseScene/Shaker").visible = false
 			
 			var shaker_scene = load("uid://cj6012mk42p4q") #shaker.tscn
 			var shaker = shaker_scene.instantiate()
 			get_tree().root.add_child(shaker)
 			
+			shaker.connect("is_mixed", _on_shaker_mixed)
 			get_tree().root.get_node("BaseScene").process_mode = Node.PROCESS_MODE_DISABLED
 			
 			print("You are shaking a cocktail: ", cocktail.name)
-			
 			clear_drinks_in_mixer()
-			mixed_cocktail = cocktail
 	
 	return mixed_cocktail
+
+func _on_shaker_mixed():
+	if waiting_for_shaker and current_cocktail:
+		mixed_cocktail = current_cocktail
+		
+		waiting_for_shaker = false
+		current_cocktail = null
 
 func clear_drinks_in_mixer() -> void:
 	for key in drinks_in_mixer.keys():

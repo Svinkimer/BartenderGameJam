@@ -61,6 +61,7 @@ func detect_shake(shake_direction, mouse_relative: Vector2):
 
 	if progress_bar.value == progress_bar.max_value:
 		is_mixed.emit()
+		
 		arrow_animation.play("RESET")
 		shaker_animation.play("RESET")
 		arrow_shake_direction.visible = false

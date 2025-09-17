@@ -2,7 +2,7 @@ class_name Client
 extends Sprite2D
 
 const ALIEN_MOVEMENT_SLOWNESS: float = 2.0
-const ALIEN_WAITING_TIME: float = 7.0
+const ALIEN_WAITING_TIME: float = 10
 
 var temper_tween: Tween;
 var position_tween: Tween;
@@ -51,7 +51,7 @@ func place_order():
 	GameState.pick_cocktail()
 	# say("Hey, I want '" + GameState.ordered_cocktail.name + "'", 1.5)
 	var greet = cur_preset.greeting_line[randi() % cur_preset.greeting_line.size()]
-	say(greet + GameState.ordered_cocktail.name + "'", 1.5)
+	say(greet + GameState.ordered_cocktail.name + "'", 2)
 	GameState.current_client = self
 	start_temper_timer()
 	
@@ -76,20 +76,20 @@ func eat_a_dumpling():
 func temper_over():
 	# say("Fuck you", 1.0)
 	var reply = cur_preset.times_up_reply[randi() % cur_preset.times_up_reply.size()]
-	say(reply, 1.0)
+	say(reply, 2.0)
 	leave_scene()
 
 func drink_wrong_order():
 	temper_tween.kill()
 	var reply = cur_preset.wrong_drink_reply[randi() % cur_preset.wrong_drink_reply.size()]
-	say(reply, 1.0)
+	say(reply, 2.0)
 	leave_scene()
 	
 func drink_right_order():
 	temper_tween.kill()
 	# say("Thank you, sunshine!", 1.0)
 	var reply = cur_preset.right_drink_reply[randi() % cur_preset.right_drink_reply.size()]
-	say(GameState.ordered_cocktail.client_line + " " + reply, 1.0)
+	say(GameState.ordered_cocktail.client_line + " " + reply, 2.0)
 	leave_scene()
 
 func say(replic: String, time: float):
