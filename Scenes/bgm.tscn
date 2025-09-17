@@ -1,0 +1,8 @@
+[gd_scene load_steps=2 format=3 uid="uid://cj2ql4jw5gyfh"]
+
+[ext_resource type="AudioStream" uid="uid://bucl000nt7o8g" path="res://Assets/Music/detuned-space.mp3" id="1_2kasm"]
+
+[node name="BGM" type="AudioStreamPlayer"]
+stream = ExtResource("1_2kasm")
+autoplay = true
+parameters/looping = true

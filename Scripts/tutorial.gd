@@ -50,7 +50,7 @@ func create_bar_menu():
 	bar_menu += "[cell][indent][indent][center][img=256x256]res://Assets/Graphics/Topping_2.png[/img][/center][/indent][/indent][/cell]"
 	bar_menu += "[cell][indent][indent]Do NOT mix with:\n• Cocktail 1\n• Cocktail 2\n[/indent][/indent][/cell][/table]\n\n"
 	
-	bar_menu += "[font_size=10]Make sure to pay your taxes by pressing 'N' on the keyboard before serving your 10th client or collecting more than 990 coins[/font_size]\n"
+	bar_menu += "[font_size=10]Make sure to pay your taxes by pressing 'N' before serving your every 10th customer or collecting more than 900 coins[/font_size]\n"
 	
 	rich_text_label.bbcode_text = bar_menu
 
