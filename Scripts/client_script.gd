@@ -8,6 +8,7 @@ var temper_tween: Tween;
 var position_tween: Tween;
 var starting_position: Vector2
 var cur_preset: AlienPreset
+var is_waiting := false
 
 func initiate(preset: AlienPreset):
 	texture = preset.texture
@@ -30,6 +31,8 @@ func enter_scene():
 	position_tween.kill()
 
 func leave_scene():
+	is_waiting = false
+	
 	if position_tween:
 		position_tween.kill()
 	position_tween = create_tween()
@@ -53,6 +56,7 @@ func place_order():
 	var greet = cur_preset.greeting_line[randi() % cur_preset.greeting_line.size()]
 	say(greet + GameState.ordered_cocktail.name + "'", 2)
 	GameState.current_client = self
+	is_waiting = true
 	start_temper_timer()
 	
 
@@ -99,3 +103,6 @@ func say(replic: String, time: float):
 	
 	await timer.timeout
 	$SpeechBubble.hide()
+
+func get_waiting_state():
+	return is_waiting

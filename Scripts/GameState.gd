@@ -189,6 +189,7 @@ func try_to_spawn_next_client() -> void:
 	# also here we'll add some checks "unhappy clients" ending condition
 
 func create_client():
+	client_vacant = true
 	var new_alien: Client = alien_scene.instantiate()
 	new_alien.global_position = alien_spawning_point_position
 	
@@ -222,8 +223,16 @@ var current_client: Client
 #endregion
 
 #region SERVING ORDER
+
+var client_vacant: bool
+
 func serve_order()-> void:
 	if mixed_cocktail == null_cocktail:
+		return
+	
+	client_vacant = current_client.get_waiting_state()
+	
+	if not client_vacant:
 		return
 	
 	if cocktail_is_poisoned:
@@ -250,7 +259,10 @@ func serve_order()-> void:
 	
 	clear_toppings_in_cocktail()
 	give_tips()
-	
+
+func _on_is_leaving():
+	client_vacant = false
+
 #endregion
 
 #region TIPS
