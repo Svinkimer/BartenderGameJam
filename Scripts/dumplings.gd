@@ -1,5 +1,5 @@
 class_name Dumplings
-extends Area2D
+extends InteractiveObject
 
 signal calm_the_client
 var number_of_dumplings := 3
