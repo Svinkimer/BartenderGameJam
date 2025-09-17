@@ -169,6 +169,10 @@ func _on_calm_the_client():
 	get_tree().root.get_node("BaseScene/Alien").eat_a_dumpling()
 
 func try_to_spawn_next_client() -> void:
+	var alien_node = get_tree().root.get_node("BaseScene/Alien")
+	get_tree().root.get_node("BaseScene").remove_child(alien_node)
+	alien_node.queue_free()
+	
 	create_client()
 	# also here we'll add some checks "unhappy clients" ending condition
 
@@ -186,7 +190,7 @@ func create_client():
 	
 	new_alien.initiate(alien_presets[id])
 	get_tree().root.get_node("BaseScene").add_child(new_alien)
-	
+
 #endregion
 
 #region MAKING ORDER

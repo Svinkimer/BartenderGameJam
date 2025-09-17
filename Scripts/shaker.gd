@@ -6,7 +6,7 @@ extends AnimatableBody2D
 @onready var shaker_animation: AnimationPlayer = $Shaker/ShakerAnimation
 @onready var arrow_animation: AnimationPlayer = $ArrowShakeDirection/ArrowAnimation
 
-@export var increment := 0.15
+@export var increment := 0.2
 @onready var arrow_timer: Timer = $ArrowShakeDirection/ArrowTimer
 @onready var scene_timer: Timer = $SceneTimer
 
@@ -46,7 +46,7 @@ func _input_event(_viewport: Viewport, event: InputEvent, _shape_idx: int) -> vo
 		arrow_timer.wait_time = 3
 		arrow_timer.start()
 		
-		scene_timer.wait_time = 10
+		scene_timer.wait_time = 15
 		scene_timer.start()
 
 func detect_shake(shake_direction, mouse_relative: Vector2):

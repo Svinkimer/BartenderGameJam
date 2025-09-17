@@ -4,7 +4,6 @@ extends Sprite2D
 const ALIEN_MOVEMENT_SLOWNESS: float = 2.0
 const ALIEN_WAITING_TIME: float = 7.0
 
-
 var temper_tween: Tween;
 var position_tween: Tween;
 var starting_position: Vector2
@@ -36,11 +35,12 @@ func leave_scene():
 	position_tween = create_tween()
 	position_tween.tween_property(self, 'position', starting_position, ALIEN_MOVEMENT_SLOWNESS).set_ease(Tween.EASE_IN_OUT)
 	
-	await get_tree().create_timer(0.75).timeout
-	GameState.try_to_spawn_next_client()
+	#await get_tree().create_timer(0.75).timeout
+	#GameState.try_to_spawn_next_client()
 	
 	await position_tween.finished
-	queue_free()
+	GameState.try_to_spawn_next_client()
+	#queue_free()
 
 
 func update_temper_display( progress_val: float):
