@@ -2,7 +2,7 @@ class_name Client
 extends Sprite2D
 
 const ALIEN_MOVEMENT_SLOWNESS: float = 2.0
-const ALIEN_WAITING_TIME: float = 5.0
+const ALIEN_WAITING_TIME: float = 7.0
 
 
 var temper_tween: Tween;
@@ -26,7 +26,7 @@ func enter_scene():
 	position_tween = create_tween()
 	position_tween.tween_property(self, 'position', position + Vector2(500.0, 0.0), ALIEN_MOVEMENT_SLOWNESS).set_ease(Tween.EASE_IN_OUT)
 	
-	await  position_tween.finished
+	await position_tween.finished
 	place_order()
 	position_tween.kill()
 
@@ -53,9 +53,25 @@ func place_order():
 	var greet = cur_preset.greeting_line[randi() % cur_preset.greeting_line.size()]
 	say(greet + GameState.ordered_cocktail.name + "'", 1.5)
 	GameState.current_client = self
+	start_temper_timer()
+	
+
+func start_temper_timer():
+	if temper_tween:
+		temper_tween.kill()
 	temper_tween = create_tween()
 	temper_tween.tween_method(update_temper_display, 0.0, 100.0, ALIEN_WAITING_TIME);
 	temper_tween.finished.connect(temper_over)
+
+func eat_a_dumpling():
+	update_temper_display(0)
+	
+	if temper_tween:
+		temper_tween.kill()
+		temper_tween.finished.disconnect(temper_over)
+	
+	start_temper_timer()
+	print("timer reset")
 
 func temper_over():
 	# say("Fuck you", 1.0)
@@ -83,6 +99,3 @@ func say(replic: String, time: float):
 	
 	await timer.timeout
 	$SpeechBubble.hide()
-
-func eat_a_dumpling():
-	pass

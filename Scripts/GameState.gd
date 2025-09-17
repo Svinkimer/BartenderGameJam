@@ -166,7 +166,7 @@ func _process(_delta: float) -> void:
 
 func _on_calm_the_client():
 	print("Resetting the progress bar")
-	get_tree().root.get_node("BaseScene/Alien").update_temper_display(0)
+	get_tree().root.get_node("BaseScene/Alien").eat_a_dumpling()
 
 func try_to_spawn_next_client() -> void:
 	create_client()
