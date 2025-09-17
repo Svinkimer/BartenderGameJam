@@ -238,6 +238,20 @@ polygon = PackedVector2Array(-49, -21, -24, -36, 10, -35, 56, -1, 57, 25, 20, 59
 
 [node name="Other" type="Node" parent="."]
 
+[node name="Dumplings" type="Area2D" parent="Other"]
+script = ExtResource("20_jdado")
+metadata/_custom_type_script = "uid://dt374kqx8vtpl"
+
+[node name="Sprite2D" type="Sprite2D" parent="Other/Dumplings"]
+material = SubResource("ShaderMaterial_qat0x")
+position = Vector2(247, 29)
+scale = Vector2(0.174023, 0.193945)
+texture = ExtResource("20_03bn2")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Other/Dumplings"]
+position = Vector2(248, 28)
+shape = SubResource("CircleShape2D_jdado")
+
 [node name="Tips" type="Node" parent="."]
 
 [node name="Marker2D" type="Marker2D" parent="Tips"]
@@ -264,20 +278,6 @@ theme_override_font_sizes/font_size = 36
 text = "0"
 horizontal_alignment = 2
 
-[node name="Dumplings" type="Area2D" parent="."]
-script = ExtResource("20_jdado")
-metadata/_custom_type_script = "uid://dt374kqx8vtpl"
-
-[node name="Sprite2D" type="Sprite2D" parent="Dumplings"]
-material = SubResource("ShaderMaterial_qat0x")
-position = Vector2(247, 29)
-scale = Vector2(0.174023, 0.193945)
-texture = ExtResource("20_03bn2")
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Dumplings"]
-position = Vector2(248, 28)
-shape = SubResource("CircleShape2D_jdado")
-
 [connection signal="input_event" from="Cap" to="Cap" method="_on_input_event"]
 [connection signal="mouse_entered" from="Cap" to="Cap" method="_on_mouse_entered"]
 [connection signal="mouse_exited" from="Cap" to="Cap" method="_on_mouse_exited"]
@@ -299,6 +299,6 @@ shape = SubResource("CircleShape2D_jdado")
 [connection signal="input_event" from="Toppings/Topping_2" to="Toppings/Topping_2" method="_on_input_event"]
 [connection signal="mouse_entered" from="Toppings/Topping_2" to="Toppings/Topping_2" method="_on_mouse_entered"]
 [connection signal="mouse_exited" from="Toppings/Topping_2" to="Toppings/Topping_2" method="_on_mouse_exited"]
-[connection signal="input_event" from="Dumplings" to="Dumplings" method="_on_input_event"]
-[connection signal="mouse_entered" from="Dumplings" to="Dumplings" method="_on_mouse_entered"]
-[connection signal="mouse_exited" from="Dumplings" to="Dumplings" method="_on_mouse_exited"]
+[connection signal="input_event" from="Other/Dumplings" to="Other/Dumplings" method="_on_input_event"]
+[connection signal="mouse_entered" from="Other/Dumplings" to="Other/Dumplings" method="_on_mouse_entered"]
+[connection signal="mouse_exited" from="Other/Dumplings" to="Other/Dumplings" method="_on_mouse_exited"]

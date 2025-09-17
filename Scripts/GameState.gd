@@ -48,7 +48,7 @@ var toppings_in_cocktail: Dictionary[ToppingPreset, bool] = {
 
 func add_topping_to_cocktail(new_topping: ToppingPreset):
 	if mixed_cocktail == null_cocktail:
-		print("No cocktail to add topping at")
+		print("No cocktail to add topping to")
 		return;
 		
 	if toppings_in_cocktail[new_topping]:
@@ -173,11 +173,10 @@ var signal_connected := false
 func _process(_delta: float) -> void:
 	
 	if get_tree().root.has_node("BaseScene/Alien") and not signal_connected:
-		get_tree().root.get_node("BaseScene/Dumplings").connect("calm_the_client", _on_calm_the_client)
+		get_tree().root.get_node("BaseScene/Other/Dumplings").connect("calm_the_client", _on_calm_the_client)
 		signal_connected = true
 
 func _on_calm_the_client():
-	print("Resetting the progress bar")
 	get_tree().root.get_node("BaseScene/Alien").eat_a_dumpling()
 
 func try_to_spawn_next_client() -> void:
@@ -259,9 +258,6 @@ func serve_order()-> void:
 	
 	clear_toppings_in_cocktail()
 	give_tips()
-
-func _on_is_leaving():
-	client_vacant = false
 
 #endregion
 
@@ -367,3 +363,9 @@ func _input(event: InputEvent) -> void:
 			get_tree().root.add_child(tutorial)
 			
 			get_tree().root.get_node("BaseScene").process_mode = Node.PROCESS_MODE_DISABLED
+			
+		if event.pressed and event.keycode == KEY_N and earned_money >= 10 and clients_served_since_tax_pay > 0:
+			print("taxes payed")
+			clients_served_since_tax_pay = 0
+			earned_money = earned_money * 0.9
+			
