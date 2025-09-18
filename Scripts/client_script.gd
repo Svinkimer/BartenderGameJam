@@ -78,7 +78,6 @@ func eat_a_dumpling():
 	print("timer reset")
 
 signal client_unhappy
-signal client_happy
 
 func temper_over():
 	# say("Fuck you", 1.0)
@@ -95,7 +94,6 @@ func drink_wrong_order():
 	leave_scene()
 	
 func drink_right_order():
-	client_happy.emit()
 	temper_tween.kill()
 	# say("Thank you, sunshine!", 1.0)
 	var reply = cur_preset.right_drink_reply[randi() % cur_preset.right_drink_reply.size()]
