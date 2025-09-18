@@ -219,7 +219,6 @@ func create_client():
 	get_tree().root.get_node("BaseScene").add_child(new_alien)
 	
 	new_alien.connect("client_unhappy", _on_client_unhappy)
-	new_alien.connect("client_happy", _on_client_happy)
 
 func _on_client_unhappy():
 	unhappy_clents_count += 1
@@ -227,10 +226,6 @@ func _on_client_unhappy():
 	
 	if unhappy_clents_count > 3:
 		ending_clients_unhappy()
-
-func _on_client_happy():
-	unhappy_clents_count = 0
-	print("Client's happy!")
 
 #endregion
 
@@ -304,9 +299,7 @@ var earned_money: int = 0 :
 		earned_money = value
 		get_base().get_node("%EarnedMoneyLabel").text = str(value)
 		
-		# test code
-		#if value >= 30 and clients_served_since_tax_pay >= 2:
-		if value >= 900 and clients_served_since_tax_pay >= 10:
+		if value >= 900 and tax_evader:
 			ending_taxes_not_paid()
 		if value >= 1000:
 			ending_win()
@@ -314,11 +307,12 @@ var earned_money: int = 0 :
 var clients_served_since_tax_pay = 0
 
 
-
 var tips_on_scene: Array[Tips] = [null, null, null, null]
 var tips_scene = preload("uid://cci63fnvep627") # tips
 
 var cocktail_cost: int = 0
+
+var tax_evader := false
 
 func give_tips():
 	var tips_instances_node: Node = get_tree().root.get_node("BaseScene").get_node("Tips")
@@ -335,7 +329,11 @@ func give_tips():
 			new_tip.idx = i
 			
 			tips_on_scene[i] = new_tip
-			clients_served_since_tax_pay+=1
+			clients_served_since_tax_pay += 1
+			
+			if clients_served_since_tax_pay > 5:
+				tax_evader = true
+			
 			break
 			
 	if no_empty_slots:
