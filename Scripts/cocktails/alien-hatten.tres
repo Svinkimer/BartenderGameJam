@@ -10,5 +10,5 @@ script = ExtResource("4_hc8uw")
 name = &"Third Sun-rise"
 ingredients = Array[ExtResource("1_fue7g")]([ExtResource("2_gvii3"), ExtResource("3_gv8rm")])
 cost = 10
-client_line = "Is it third positive?"
+client_line = "Улет! "
 metadata/_custom_type_script = "uid://ddbigfcnk37ea"

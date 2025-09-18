@@ -10,5 +10,5 @@ script = ExtResource("4_o40e8")
 name = &"(не)Виски-Кола"
 ingredients = Array[ExtResource("1_e3gsc")]([ExtResource("2_e3gsc"), ExtResource("3_sbvrk")])
 cost = 10
-client_line = "Is it third positive?"
+client_line = "Классика. "
 metadata/_custom_type_script = "uid://ddbigfcnk37ea"

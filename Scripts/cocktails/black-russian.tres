@@ -10,5 +10,5 @@ script = ExtResource("2_c46ew")
 name = &"Черный русский"
 ingredients = Array[ExtResource("1_mixs3")]([ExtResource("3_05vf2"), ExtResource("3_wid8x")])
 cost = 20
-client_line = "May the silushka be with you!"
+client_line = "Прямо как на Земле! "
 metadata/_custom_type_script = "uid://ddbigfcnk37ea"

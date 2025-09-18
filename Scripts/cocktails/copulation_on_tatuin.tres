@@ -10,5 +10,5 @@ script = ExtResource("2_csty5")
 name = &"Копуляция на Татуине"
 ingredients = Array[ExtResource("1_tn82s")]([ExtResource("2_33ulq"), ExtResource("3_33ulq")])
 cost = 10
-client_line = "Is it third positive?"
+client_line = "Пикантно! "
 metadata/_custom_type_script = "uid://ddbigfcnk37ea"

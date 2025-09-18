@@ -9,5 +9,5 @@ script = ExtResource("3_jccs2")
 name = &"Проект Alien-хэттен"
 ingredients = Array[ExtResource("1_taewd")]([ExtResource("2_r3sx0"), ExtResource("2_r3sx0")])
 cost = 10
-client_line = "Is it third positive?"
+client_line = "Земная классика! "
 metadata/_custom_type_script = "uid://ddbigfcnk37ea"

@@ -34,7 +34,7 @@ func create_bar_menu():
 	
 	# Cocktails 7 & 8
 	bar_menu += "[table=4][cell][center][b]Проект\nAlien-хэттен[/b][/center][/cell][cell][/cell]"
-	bar_menu += "[cell][indent][indent][indent][center][b]Виски-кола[/b][/center][/indent][/indent][/indent][/cell][cell][/cell]"
+	bar_menu += "[cell][indent][indent][indent][center][b](не) Виски-кола[/b][/center][/indent][/indent][/indent][/cell][cell][/cell]"
 	bar_menu += "[cell][img=256x256]res://Assets/Graphics/Tutorial/cocktail2.png[/img][/cell]"
 	bar_menu += "[cell][indent]• Кровь\nОМЕЖки\n• Кровь\nОМЕЖки\n[/indent][/cell]\n\n"
 	bar_menu += "[cell][indent][indent][indent][center][img=256x256]res://Assets/Graphics/Tutorial/cocktail3.png[/img][/center][/indent][/indent][/indent][/cell]"
@@ -64,5 +64,6 @@ func _on_button_pressed() -> void:
 			overlay_scene.queue_free()
 		
 		get_tree().root.get_node("BaseScene").process_mode = Node.PROCESS_MODE_INHERIT
+		GameState.in_tutorial = false
 	else:
 		get_tree().change_scene_to_file("uid://crvo564wxm88r") #main_menu.tscn

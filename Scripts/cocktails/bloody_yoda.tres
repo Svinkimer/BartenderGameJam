@@ -10,5 +10,5 @@ script = ExtResource("4_bbid4")
 name = &"Кровавый Йода"
 ingredients = Array[ExtResource("1_ijil6")]([ExtResource("2_sh5vc"), ExtResource("3_oxuhd")])
 cost = 15
-client_line = "May the force be with you!"
+client_line = "Четвертая положительная?"
 metadata/_custom_type_script = "uid://ddbigfcnk37ea"
