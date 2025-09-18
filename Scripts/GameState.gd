@@ -87,6 +87,14 @@ var mixed_cocktail: CocktailPreset = null_cocktail :
 		mixed_cocktail = new_mix
 		mixed_cocktail_label.text = new_mix.name
 
+<<<<<<< Updated upstream
+=======
+var waiting_for_shaker := false
+var current_cocktail: CocktailPreset
+
+var eater: Eater;
+
+>>>>>>> Stashed changes
 func mix_cocktail() -> CocktailPreset:
 	
 	for cocktail in available_cocktails:
@@ -102,8 +110,12 @@ func mix_cocktail() -> CocktailPreset:
 		if all_ingredients_present:
 			print("You are shaking cocktail:: ", cocktail.name)
 			clear_drinks_in_mixer()
+<<<<<<< Updated upstream
 			mixed_cocktail = cocktail
 	
+=======
+			eater.appear()
+>>>>>>> Stashed changes
 	
 	return mixed_cocktail
 
@@ -145,6 +157,11 @@ func try_to_spawn_next_client() -> void:
 	# also here we'll add some checks "unhappy clients" ending condition
 
 func create_client():
+<<<<<<< Updated upstream
+=======
+	print("Creating client...")
+	client_vacant = true
+>>>>>>> Stashed changes
 	var new_alien: Client = alien_scene.instantiate()
 	new_alien.global_position = alien_spawning_point_position
 	new_alien.initiate(alien_presets[1])
@@ -177,6 +194,7 @@ func serve_order()-> void:
 	if cocktail_is_poisoned:
 		cocktail_is_poisoned = false
 		ending_poisoned_client()
+		return
 	
 	if ordered_cocktail == mixed_cocktail:
 		
@@ -193,8 +211,17 @@ func serve_order()-> void:
 		#print("You made correct cocktail!")
 	
 	clear_toppings_in_cocktail()
+	
+	eater.disappear()
 	give_tips()
 	
+<<<<<<< Updated upstream
+=======
+
+func _on_is_leaving():
+	client_vacant = false
+
+>>>>>>> Stashed changes
 #endregion
 
 #region TIPS

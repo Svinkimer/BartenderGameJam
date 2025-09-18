@@ -116,7 +116,12 @@ _data = {
 &"pulse": SubResource("Animation_dbqg4")
 }
 
+<<<<<<< Updated upstream
 [node name="Shaker" type="AnimatableBody2D"]
+=======
+[node name="ShakerScene" type="AnimatableBody2D"]
+z_index = 5
+>>>>>>> Stashed changes
 script = ExtResource("2_n1qj4")
 
 [node name="Shaker" type="Sprite2D" parent="."]
