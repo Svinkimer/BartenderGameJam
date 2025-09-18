@@ -1,7 +1,6 @@
-[gd_scene load_steps=47 format=3 uid="uid://nexu324ps2np"]
+[gd_scene load_steps=51 format=3 uid="uid://nexu324ps2np"]
 
 [ext_resource type="Script" uid="uid://kxs6hx601h0l" path="res://Scripts/base_scene_script.gd" id="1_w82d0"]
-[ext_resource type="Texture2D" uid="uid://mq01g4du4bav" path="res://Assets/Graphics/bottle-asset.png" id="2_grsh6"]
 [ext_resource type="Script" uid="uid://qcpj0e36e2jv" path="res://Scripts/eater_script.gd" id="2_rlc2g"]
 [ext_resource type="Script" uid="uid://wc3t5o6oddbj" path="res://Scripts/bottle_script_new.gd" id="3_dguys"]
 [ext_resource type="Texture2D" uid="uid://bj6wa8lkswbuf" path="res://Assets/Graphics/shaker.webp" id="3_v4ssl"]
@@ -10,15 +9,18 @@
 [ext_resource type="Script" uid="uid://b4wmdykc34wpv" path="res://Scripts/mixers_cup.gd" id="6_7pjbf"]
 [ext_resource type="Texture2D" uid="uid://dolna3fmckrk6" path="res://Assets/Graphics/cap.png" id="6_iqjmv"]
 [ext_resource type="Resource" uid="uid://buyaw0dauxdkx" path="res://Scripts/ingredients/Power_Slavic.tres" id="6_w82d0"]
-[ext_resource type="Texture2D" uid="uid://cwpg5mk6267ld" path="res://Assets/Graphics/bottle1.png" id="10_n3mmg"]
+[ext_resource type="Texture2D" uid="uid://ch4fvoijp8ysg" path="res://Assets/Graphics/bottles/bottle1.png" id="10_n3mmg"]
 [ext_resource type="Material" uid="uid://br40smcaqjtlg" path="res://Scripts/highlight_shader_material.tres" id="10_w82d0"]
+[ext_resource type="Resource" uid="uid://b6hloixolq11h" path="res://Scripts/ingredients/Jija.tres" id="11_51tv0"]
 [ext_resource type="Resource" uid="uid://bwown7dcpfvo6" path="res://Scripts/ingredients/Blood_of_OMEZHka.tres" id="11_inta4"]
-[ext_resource type="Texture2D" uid="uid://dqarkdt0mh1ii" path="res://Assets/Graphics/bottle2.png" id="12_g0n7r"]
+[ext_resource type="Texture2D" uid="uid://b25oxttssxn3d" path="res://Assets/Graphics/bottles/bottle2 (2).png" id="12_xi04m"]
 [ext_resource type="Script" uid="uid://co2iqtq27tpbs" path="res://Scripts/cocktail_glass.gd" id="13_4ojyy"]
 [ext_resource type="Texture2D" uid="uid://chbo4k7k5hgql" path="res://Assets/Graphics/cocktail.png" id="13_sujg0"]
 [ext_resource type="Script" uid="uid://dt1xlesr74lce" path="res://Scripts/topping_script.gd" id="15_pcjn2"]
+[ext_resource type="Texture2D" uid="uid://dm0og6bltdvol" path="res://Assets/Graphics/bottles/bottle3.png" id="15_ssd8v"]
 [ext_resource type="Texture2D" uid="uid://co3kkxxpqpwxp" path="res://Assets/Graphics/Topping_1.png" id="16_mw2s4"]
 [ext_resource type="Resource" uid="uid://7gpxth7fjkll" path="res://Scripts/toppings/strawberries.tres" id="16_rb0y5"]
+[ext_resource type="Texture2D" uid="uid://myt7tntm8tap" path="res://Assets/Graphics/bottles/bottle4.png" id="17_f3cj8"]
 [ext_resource type="Texture2D" uid="uid://db7hikm5rw6l1" path="res://Assets/Graphics/Topping_2.png" id="17_mw2s4"]
 [ext_resource type="Resource" uid="uid://dmn8rm05sjufe" path="res://Scripts/toppings/eyeballs.tres" id="18_dwuxu"]
 [ext_resource type="Texture2D" uid="uid://s3g01e2rrkfv" path="res://Assets/Graphics/dumplings.png" id="20_03bn2"]
@@ -40,12 +42,40 @@ shader_parameter/intensity = 0.0
 shader = ExtResource("4_rj2d4")
 shader_parameter/intensity = 0.0
 
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_rj2d4"]
+shader = ExtResource("4_rj2d4")
+shader_parameter/intensity = 0.0
+
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_dguys"]
 shader = ExtResource("4_rj2d4")
 shader_parameter/intensity = 0.0
 
-[sub_resource type="ShaderMaterial" id="ShaderMaterial_rj2d4"]
-shader = ExtResource("4_rj2d4")
+[sub_resource type="Shader" id="Shader_e12a2"]
+code = "shader_type canvas_item;
+uniform float intensity = 0.0;
+
+void vertex() {
+	// Called for every vertex the material is visible on.
+}
+
+void fragment() {
+	vec4 pixel_color = texture(TEXTURE, UV);
+	
+	
+	if (COLOR.a != 0.0) {
+		COLOR = pixel_color + vec4(intensity);
+	}
+}
+
+//void light() {
+//	// Called for every pixel for every light affecting the CanvasItem.
+//	// Uncomment to replace the default light processing function with this one.
+//}
+"
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_51tv0"]
+resource_local_to_scene = true
+shader = SubResource("Shader_e12a2")
 shader_parameter/intensity = 0.0
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_pcjn2"]
@@ -111,7 +141,7 @@ corner_radius_bottom_right = 8
 corner_radius_bottom_left = 8
 shadow_size = 3
 
-[sub_resource type="Shader" id="Shader_e12a2"]
+[sub_resource type="Shader" id="Shader_xi04m"]
 code = "shader_type canvas_item;
 uniform float intensity = 0.0;
 
@@ -136,7 +166,7 @@ void fragment() {
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_rlc2g"]
 resource_local_to_scene = true
-shader = SubResource("Shader_e12a2")
+shader = SubResource("Shader_xi04m")
 shader_parameter/intensity = 0.0
 
 [sub_resource type="Animation" id="Animation_n3mmg"]
@@ -166,7 +196,7 @@ tracks/0/keys = {
 "times": PackedFloat32Array(-0.0333333, 1),
 "transitions": PackedFloat32Array(1, 1),
 "update": 0,
-"values": [Vector2(453, 257), Vector2(453, -43)]
+"values": [Vector2(453, 330), Vector2(453, -43)]
 }
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_g0n7r"]
@@ -256,56 +286,125 @@ offset_bottom = 40.0
 
 [node name="Drinks" type="Node" parent="."]
 
-[node name="Bottle2" type="Area2D" parent="Drinks"]
+[node name="Power" type="Area2D" parent="Drinks"]
 z_index = 4
-position = Vector2(-464, 195)
+position = Vector2(-554, 229)
 scale = Vector2(0.773364, 0.773364)
 script = ExtResource("3_dguys")
-key = &"Тоник"
-drink = ExtResource("4_vgg6j")
-metadata/_edit_group_ = true
-
-[node name="Sprite2D" type="Sprite2D" parent="Drinks/Bottle2"]
-material = SubResource("ShaderMaterial_dguys")
-scale = Vector2(0.314034, 0.314034)
-texture = ExtResource("10_n3mmg")
-
-[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Drinks/Bottle2"]
-scale = Vector2(0.791262, 0.791262)
-polygon = PackedVector2Array(-54.3082, -169.39, -27.1541, -126.719, -25.8611, -55.6012, -120.254, 2.58611, -71.1179, 169.39, 72.4109, 170.683, 120.254, 2.58611, 25.861, -56.8943, 29.7402, -128.012, 50.4291, -170.683)
-
-[node name="Bottle1" type="Area2D" parent="Drinks"]
-z_index = 4
-position = Vector2(-611, 219)
-scale = Vector2(0.76182, 0.76182)
-script = ExtResource("3_dguys")
-key = &"Джин"
 drink = ExtResource("6_w82d0")
 metadata/_edit_group_ = true
 
-[node name="Sprite2D" type="Sprite2D" parent="Drinks/Bottle1"]
-material = SubResource("ShaderMaterial_rj2d4")
-scale = Vector2(0.337746, 0.337746)
-texture = ExtResource("12_g0n7r")
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Drinks/Power"]
+polygon = PackedVector2Array(-32.3263, -51.7221, -67.2387, -41.3777, -65.9456, 103.444, -36.2054, 130.598, 34.9124, 103.444, 36.2055, -41.3777, 3.87915, -59.4804, 5.17221, -124.133, -7.7583, -131.891, -33.6194, -121.547)
 
-[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Drinks/Bottle1"]
+[node name="Sprite2D" type="Sprite2D" parent="Drinks/Power"]
+material = ExtResource("10_w82d0")
+scale = Vector2(0.40954, 0.40954)
+texture = ExtResource("15_ssd8v")
+
+[node name="Кровь Омежки" type="Label" parent="Drinks/Power"]
+offset_left = -108.616
+offset_top = 116.375
+offset_right = 84.3836
+offset_bottom = 190.375
+theme_override_colors/font_color = Color(0, 1, 0, 1)
+theme_override_constants/line_spacing = -10
+theme_override_font_sizes/font_size = 20
+text = "Силушка
+Богатырская"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Jija" type="Area2D" parent="Drinks"]
+z_index = 4
+position = Vector2(-472, 189)
+scale = Vector2(0.76182, 0.76182)
+script = ExtResource("3_dguys")
+drink = ExtResource("11_51tv0")
+metadata/_edit_group_ = true
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Drinks/Jija"]
+position = Vector2(0, 19.2013)
+scale = Vector2(0.846499, 0.846499)
 polygon = PackedVector2Array(-11.8138, -157.518, -11.8138, -93.1979, -35.4414, -76.1335, -36.7541, 156.205, 36.7541, 157.517, 35.4415, -77.4462, 13.1265, -90.5726, 11.8138, -158.83)
 
-[node name="Bottle3" type="Area2D" parent="Drinks"]
+[node name="Sprite2D" type="Sprite2D" parent="Drinks/Jija"]
+material = SubResource("ShaderMaterial_rj2d4")
+position = Vector2(0, 19.2013)
+scale = Vector2(0.285902, 0.285902)
+texture = ExtResource("12_xi04m")
+
+[node name="Кровь Омежки" type="Label" parent="Drinks/Jija"]
+offset_left = -40.3746
+offset_top = 158.625
+offset_right = 39.6254
+offset_bottom = 188.625
+theme_override_colors/font_color = Color(0, 1, 0, 1)
+theme_override_constants/line_spacing = -10
+theme_override_font_sizes/font_size = 20
+text = "Жижа"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Blood" type="Area2D" parent="Drinks"]
 z_index = 4
-position = Vector2(-269, 227)
+position = Vector2(-383, 196)
 scale = Vector2(0.773364, 0.773364)
 script = ExtResource("3_dguys")
-key = &"Виски"
 drink = ExtResource("11_inta4")
 metadata/_edit_group_ = true
 
-[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Drinks/Bottle3"]
-polygon = PackedVector2Array(-18, -176, -19, -61, -55, -27, -55, 161, -44, 174, 42, 177, 55, 162, 55, -30, 19, -65, 18, -176)
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Drinks/Blood"]
+position = Vector2(-3.87927, 48.1398)
+scale = Vector2(0.53139, 0.53139)
+polygon = PackedVector2Array(-54.3082, -169.39, -27.1541, -126.719, -25.8611, -55.6012, -120.254, 2.58611, -71.1179, 169.39, 72.4109, 170.683, 120.254, 2.58611, 25.861, -56.8943, 29.7402, -128.012, 50.4291, -170.683)
 
-[node name="Sprite2D" type="Sprite2D" parent="Drinks/Bottle3"]
-material = ExtResource("10_w82d0")
-texture = ExtResource("2_grsh6")
+[node name="Sprite2D" type="Sprite2D" parent="Drinks/Blood"]
+material = SubResource("ShaderMaterial_dguys")
+position = Vector2(-3.87927, 48.1398)
+scale = Vector2(0.210897, 0.210897)
+texture = ExtResource("10_n3mmg")
+
+[node name="Кровь Омежки" type="Label" parent="Drinks/Blood"]
+offset_left = -52.0
+offset_top = 138.0
+offset_right = 46.0
+offset_bottom = 184.0
+theme_override_colors/font_color = Color(0, 1, 0, 1)
+theme_override_constants/line_spacing = -10
+theme_override_font_sizes/font_size = 20
+text = "Кровь
+ОМЕЖки"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Absent" type="Area2D" parent="Drinks"]
+z_index = 4
+position = Vector2(-300, 231)
+scale = Vector2(0.773364, 0.773364)
+script = ExtResource("3_dguys")
+drink = ExtResource("4_vgg6j")
+metadata/_edit_group_ = true
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Drinks/Absent"]
+polygon = PackedVector2Array(-3.87912, -60.7734, -34.9124, -41.3776, -34.9124, 103.444, 36.2055, 130.598, 67.2387, 103.444, 67.2387, -42.6707, 32.3264, -51.7221, 34.9124, -121.547, 6.4653, -131.891, -7.75827, -122.84)
+
+[node name="Sprite2D" type="Sprite2D" parent="Drinks/Absent"]
+material = SubResource("ShaderMaterial_51tv0")
+scale = Vector2(0.40954, 0.40954)
+texture = ExtResource("17_f3cj8")
+
+[node name="Кровь Омежки" type="Label" parent="Drinks/Absent"]
+offset_left = -82.7553
+offset_top = 107.323
+offset_right = 110.245
+offset_bottom = 181.323
+theme_override_colors/font_color = Color(0, 1, 0, 1)
+theme_override_constants/line_spacing = -10
+theme_override_font_sizes/font_size = 20
+text = "50 abCentv"
+horizontal_alignment = 1
+vertical_alignment = 1
 
 [node name="Toppings" type="Node" parent="."]
 
@@ -412,13 +511,13 @@ stream = ExtResource("22_qat0x")
 
 [node name="BarBacrground" type="Sprite2D" parent="Background"]
 z_index = 1
-position = Vector2(1, -6.22434)
+position = Vector2(1, -54)
 scale = Vector2(0.68436, 0.660872)
 texture = ExtResource("22_rlc2g")
 
 [node name="Bar" type="Sprite2D" parent="Background"]
 z_index = 3
-position = Vector2(-7.00003, 198.5)
+position = Vector2(2, 183)
 scale = Vector2(0.684375, 0.6)
 texture = ExtResource("25_rlc2g")
 
@@ -448,15 +547,18 @@ libraries = {
 [connection signal="input_event" from="CocktailGlass" to="CocktailGlass" method="_on_input_event"]
 [connection signal="mouse_entered" from="CocktailGlass" to="CocktailGlass" method="_on_mouse_entered"]
 [connection signal="mouse_exited" from="CocktailGlass" to="CocktailGlass" method="_on_mouse_exited"]
-[connection signal="input_event" from="Drinks/Bottle2" to="Drinks/Bottle2" method="_on_input_event"]
-[connection signal="mouse_entered" from="Drinks/Bottle2" to="Drinks/Bottle2" method="_on_mouse_entered"]
-[connection signal="mouse_exited" from="Drinks/Bottle2" to="Drinks/Bottle2" method="_on_mouse_exited"]
-[connection signal="input_event" from="Drinks/Bottle1" to="Drinks/Bottle1" method="_on_input_event"]
-[connection signal="mouse_entered" from="Drinks/Bottle1" to="Drinks/Bottle1" method="_on_mouse_entered"]
-[connection signal="mouse_exited" from="Drinks/Bottle1" to="Drinks/Bottle1" method="_on_mouse_exited"]
-[connection signal="input_event" from="Drinks/Bottle3" to="Drinks/Bottle3" method="_on_input_event"]
-[connection signal="mouse_entered" from="Drinks/Bottle3" to="Drinks/Bottle3" method="_on_mouse_entered"]
-[connection signal="mouse_exited" from="Drinks/Bottle3" to="Drinks/Bottle3" method="_on_mouse_exited"]
+[connection signal="input_event" from="Drinks/Power" to="Drinks/Power" method="_on_input_event"]
+[connection signal="mouse_entered" from="Drinks/Power" to="Drinks/Power" method="_on_mouse_entered"]
+[connection signal="mouse_exited" from="Drinks/Power" to="Drinks/Power" method="_on_mouse_exited"]
+[connection signal="input_event" from="Drinks/Jija" to="Drinks/Jija" method="_on_input_event"]
+[connection signal="mouse_entered" from="Drinks/Jija" to="Drinks/Jija" method="_on_mouse_entered"]
+[connection signal="mouse_exited" from="Drinks/Jija" to="Drinks/Jija" method="_on_mouse_exited"]
+[connection signal="input_event" from="Drinks/Blood" to="Drinks/Blood" method="_on_input_event"]
+[connection signal="mouse_entered" from="Drinks/Blood" to="Drinks/Blood" method="_on_mouse_entered"]
+[connection signal="mouse_exited" from="Drinks/Blood" to="Drinks/Blood" method="_on_mouse_exited"]
+[connection signal="input_event" from="Drinks/Absent" to="Drinks/Absent" method="_on_input_event"]
+[connection signal="mouse_entered" from="Drinks/Absent" to="Drinks/Absent" method="_on_mouse_entered"]
+[connection signal="mouse_exited" from="Drinks/Absent" to="Drinks/Absent" method="_on_mouse_exited"]
 [connection signal="input_event" from="Toppings/Topping_1" to="Toppings/Topping_1" method="_on_input_event"]
 [connection signal="mouse_entered" from="Toppings/Topping_1" to="Toppings/Topping_1" method="_on_mouse_entered"]
 [connection signal="mouse_exited" from="Toppings/Topping_1" to="Toppings/Topping_1" method="_on_mouse_exited"]

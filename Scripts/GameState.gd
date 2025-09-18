@@ -14,9 +14,10 @@ func count_drinks_in_mixer() -> int:
 
 
 var drinks_in_mixer: Dictionary[IngredientPreset, bool] = {
-	preload("uid://buyaw0dauxdkx"): false, # gin
-	preload("uid://bd7w6ca452nqg"): false, # wiskey
-	preload("uid://bwown7dcpfvo6"): false # tonic
+	preload("uid://bd7w6ca452nqg"): false, # 50 absent
+	preload("uid://bwown7dcpfvo6"): false, # blood of omezhka
+	preload("uid://b6hloixolq11h"): false, # jija
+	preload("uid://buyaw0dauxdkx"): false, # Silushka
 }
 
 

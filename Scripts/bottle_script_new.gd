@@ -1,7 +1,6 @@
 class_name Bottle
 extends InteractiveObject
 
-@export var key: StringName 
 @export var drink: IngredientPreset
 
 func on_click():
