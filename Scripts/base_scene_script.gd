@@ -8,5 +8,10 @@ func _ready() -> void:
 
 func _on_quit_pressed() -> void:
 	MouseClick.play()
+	
+	# to test the ending screens
+	#GameState.ending = 3
+	#GameState.end_game()
+	
 	await get_tree().create_timer(0.5).timeout
 	get_tree().quit()
