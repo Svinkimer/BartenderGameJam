@@ -1,6 +1,11 @@
-[gd_scene load_steps=6 format=3 uid="uid://da4jt5lr7qc38"]
+[gd_scene load_steps=11 format=3 uid="uid://da4jt5lr7qc38"]
 
 [ext_resource type="Script" uid="uid://btibq22mq6g1r" path="res://Scripts/the_end.gd" id="1_dwy7s"]
+[ext_resource type="Texture2D" uid="uid://df1nbaoahoraq" path="res://Assets/Graphics/TheEnd/winner.png" id="2_t8iqq"]
+[ext_resource type="Texture2D" uid="uid://dmpj8h10qhiao" path="res://Assets/Graphics/TheEnd/poison.png" id="3_152uk"]
+[ext_resource type="Texture2D" uid="uid://cva3r78kat7tm" path="res://Assets/Graphics/TheEnd/explosion.png" id="4_p1iov"]
+[ext_resource type="Texture2D" uid="uid://bniisxewjiihi" path="res://Assets/Graphics/TheEnd/handcuffs.png" id="5_s7qj6"]
+[ext_resource type="Texture2D" uid="uid://df4h4dg2affg6" path="res://Assets/Graphics/TheEnd/blood.png" id="6_152uk"]
 
 [sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_tgc4e"]
 
@@ -66,6 +71,30 @@ theme_override_styles/normal = SubResource("StyleBoxFlat_ekukb")
 text = "X"
 
 [node name="Camera2D" type="Camera2D" parent="."]
+
+[node name="Prize" type="Sprite2D" parent="."]
+position = Vector2(-363, -87)
+scale = Vector2(0.2, 0.2)
+texture = ExtResource("2_t8iqq")
+
+[node name="Poison" type="Sprite2D" parent="."]
+position = Vector2(402, 155)
+scale = Vector2(0.1, 0.1)
+texture = ExtResource("3_152uk")
+
+[node name="Exploison" type="Sprite2D" parent="."]
+scale = Vector2(0.4, 0.4)
+texture = ExtResource("4_p1iov")
+
+[node name="Handcuffs" type="Sprite2D" parent="."]
+position = Vector2(-1.99998, -200)
+scale = Vector2(0.1, 0.1)
+texture = ExtResource("5_s7qj6")
+
+[node name="Blood" type="Sprite2D" parent="."]
+position = Vector2(-3.49995, 0.999993)
+scale = Vector2(0.427667, 0.362)
+texture = ExtResource("6_152uk")
 
 [node name="Label" type="Label" parent="."]
 layout_mode = 0
