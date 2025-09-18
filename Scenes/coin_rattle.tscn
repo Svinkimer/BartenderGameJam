@@ -1,0 +1,6 @@
+[gd_scene load_steps=2 format=3 uid="uid://80nvj7v0pmml"]
+
+[ext_resource type="AudioStream" uid="uid://boab3ntuwxqq2" path="res://Assets/Sounds/coin-rattle.mp3" id="1_ghb3v"]
+
+[node name="CoinRattle" type="AudioStreamPlayer"]
+stream = ExtResource("1_ghb3v")

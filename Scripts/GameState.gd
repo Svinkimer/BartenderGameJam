@@ -267,8 +267,10 @@ var earned_money: int = 0 :
 		earned_money = value
 		get_base().get_node("%EarnedMoneyLabel").text = str(value)
 		
+		# test code
+		#if value >= 30 and clients_served_since_tax_pay >= 2:
 		if value >= 900 and clients_served_since_tax_pay >= 10:
-			ending_taxes_not_payed()
+			ending_taxes_not_paid()
 		if value >= 1000:
 			ending_win()
 
@@ -314,31 +316,44 @@ func collect_tips(tips_node_index: int):
 #endregion
 
 #region ENDINGS
+enum ENDINGS {GOOD_ENDING, POISONED_CLIENT, DRINK_EXPLODED, TAXES_NOT_PAID, CLIENTS_UNHAPPY}
+var ending: ENDINGS
+
 func ending_win():
 	print("Hurray! You won - 1000 space bucks earned")
+	ending = ENDINGS.GOOD_ENDING
 	end_game()
 
 func ending_poisoned_client():
 	print("Oh, hell! You poisoned our client!!!")
+	ending = ENDINGS.POISONED_CLIENT
 	end_game()
 	
 func ending_drink_exploded():
 	print("KABO-O-O-OM! Drink suddenly exploded!!!")
+	ending = ENDINGS.DRINK_EXPLODED
 	end_game()
 
-func ending_taxes_not_payed():
+func ending_taxes_not_paid():
 	print("Someone didn't pay their taxes, I see? Mua-ha-ha-ha!")
+	ending = ENDINGS.TAXES_NOT_PAID
 	end_game()
 	
 func ending_clients_unhappy():
 	print("A crowd of unhappy clients came to kill you.")
+	ending = ENDINGS.CLIENTS_UNHAPPY
 	end_game()
+
+func get_ending():
+	return ending
 
 func end_game():
 	print("GAME OVER")
+	await get_tree().create_timer(1).timeout
+	get_tree().change_scene_to_file("uid://da4jt5lr7qc38") #the_end.tscn
 	
-	await get_tree().create_timer(1.0).timeout
-	get_tree().quit()
+	#await get_tree().create_timer(1.0).timeout
+	#get_tree().quit()
 #endregion
 
 #region UNHAPPY CLIENTS

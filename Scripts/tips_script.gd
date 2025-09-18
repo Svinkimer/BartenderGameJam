@@ -9,7 +9,6 @@ func setup_reward(reward_val: int):
 func add_reward(additional_reward: int):
 	reward += additional_reward
 
-
-
 func on_click():
+	CoinRattle.play()
 	GameState.collect_tips(idx)

@@ -39,8 +39,6 @@ func _ready():
 
 func _input_event(_viewport: Viewport, event: InputEvent, _shape_idx: int) -> void:
 	if event is InputEventMouseButton and event.pressed and event.button_index == MOUSE_BUTTON_LEFT:
-		MouseClick.play()
-		
 		is_pressed = true
 		generate_shake_direction()
 		arrow_shake_direction.visible = true
