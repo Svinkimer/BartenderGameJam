@@ -1,0 +1,14 @@
+[gd_resource type="Resource" script_class="CocktailPreset" load_steps=5 format=3 uid="uid://b2r3kththmfhf"]
+
+[ext_resource type="Script" uid="uid://bsl0ueiomlsm6" path="res://Scripts/ingredients/ingredient_preset.gd" id="1_fue7g"]
+[ext_resource type="Resource" uid="uid://bwown7dcpfvo6" path="res://Scripts/ingredients/Blood_of_OMEZHka.tres" id="2_gvii3"]
+[ext_resource type="Resource" uid="uid://b6hloixolq11h" path="res://Scripts/ingredients/Jija.tres" id="3_gv8rm"]
+[ext_resource type="Script" uid="uid://ddbigfcnk37ea" path="res://Scripts/cocktails/cocktail_preset.gd" id="4_hc8uw"]
+
+[resource]
+script = ExtResource("4_hc8uw")
+name = &"Third Sun-rise"
+ingredients = Array[ExtResource("1_fue7g")]([ExtResource("2_gvii3"), ExtResource("3_gv8rm")])
+cost = 10
+client_line = "Is it third positive?"
+metadata/_custom_type_script = "uid://ddbigfcnk37ea"

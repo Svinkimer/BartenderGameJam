@@ -1,0 +1,8 @@
+[gd_resource type="Resource" script_class="IngredientPreset" load_steps=2 format=3 uid="uid://b6hloixolq11h"]
+
+[ext_resource type="Script" uid="uid://bsl0ueiomlsm6" path="res://Scripts/ingredients/ingredient_preset.gd" id="1_w6aae"]
+
+[resource]
+script = ExtResource("1_w6aae")
+name = &"Жижа"
+metadata/_custom_type_script = "uid://bsl0ueiomlsm6"

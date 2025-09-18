@@ -1,14 +1,14 @@
 [gd_resource type="Resource" script_class="CocktailPreset" load_steps=5 format=3 uid="uid://b2vun11q07vnj"]
 
 [ext_resource type="Script" uid="uid://bsl0ueiomlsm6" path="res://Scripts/ingredients/ingredient_preset.gd" id="1_tn82s"]
-[ext_resource type="Resource" uid="uid://bwown7dcpfvo6" path="res://Scripts/ingredients/wiskey.tres" id="2_33ulq"]
+[ext_resource type="Resource" uid="uid://bwown7dcpfvo6" path="res://Scripts/ingredients/Blood_of_OMEZHka.tres" id="2_33ulq"]
 [ext_resource type="Script" uid="uid://ddbigfcnk37ea" path="res://Scripts/cocktails/cocktail_preset.gd" id="2_csty5"]
-[ext_resource type="Resource" uid="uid://buyaw0dauxdkx" path="res://Scripts/ingredients/gin.tres" id="3_x6nt7"]
+[ext_resource type="Resource" uid="uid://bd7w6ca452nqg" path="res://Scripts/ingredients/50_absent.tres" id="3_33ulq"]
 
 [resource]
 script = ExtResource("2_csty5")
-name = &"Пина-колада"
-ingredients = Array[ExtResource("1_tn82s")]([ExtResource("2_33ulq"), ExtResource("3_x6nt7")])
+name = &"Копуляция на Татуине"
+ingredients = Array[ExtResource("1_tn82s")]([ExtResource("2_33ulq"), ExtResource("3_33ulq")])
 cost = 10
 client_line = "Is it third positive?"
 metadata/_custom_type_script = "uid://ddbigfcnk37ea"
