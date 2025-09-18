@@ -1,5 +1,7 @@
 extends Node
 
+var eater: Eater
+
 #region MANAGEMENT OF INGREDIENTS
 const MAX_DRINKS_IN_MIX: int = 3
 
@@ -20,6 +22,8 @@ var drinks_in_mixer: Dictionary[IngredientPreset, bool] = {
 
 
 func add_drink_in_mixer(ingredient: IngredientPreset) -> bool:
+	if eater.is_hidden:
+		eater.appear()
 	# mixer cup is full
 	if count_drinks_in_mixer() >= MAX_DRINKS_IN_MIX:
 		print("Mixer is full")
@@ -109,10 +113,10 @@ func mix_cocktail() -> CocktailPreset:
 			get_tree().root.get_node("BaseScene/Shaker").visible = false
 			
 			var shaker_scene = load("uid://cj6012mk42p4q") #shaker.tscn
-			var shaker = shaker_scene.instantiate()
+			var shaker: ShakerMinigame = shaker_scene.instantiate()
 			get_tree().root.add_child(shaker)
-			
-			shaker.connect("is_mixed", _on_shaker_mixed)
+			shaker.is_mixed.connect(_on_shaker_mixed)
+			#shaker.connect("is_mixed", _on_shaker_mixed)
 			get_tree().root.get_node("BaseScene").process_mode = Node.PROCESS_MODE_DISABLED
 			
 			print("You are shaking a cocktail: ", cocktail.name)
@@ -120,8 +124,12 @@ func mix_cocktail() -> CocktailPreset:
 	
 	return mixed_cocktail
 
+
+
 func _on_shaker_mixed():
+	print("SHAKER callback worked")
 	if waiting_for_shaker and current_cocktail:
+		
 		mixed_cocktail = current_cocktail
 		
 		waiting_for_shaker = false
@@ -226,6 +234,7 @@ var current_client: Client
 var client_vacant: bool
 
 func serve_order()-> void:
+	print("Served cocktail")
 	if mixed_cocktail == null_cocktail:
 		return
 	
@@ -237,6 +246,9 @@ func serve_order()-> void:
 	if cocktail_is_poisoned:
 		cocktail_is_poisoned = false
 		ending_poisoned_client()
+		
+	if !eater.is_hidden:
+		eater.disappear()
 	
 	if ordered_cocktail == mixed_cocktail:
 		
@@ -250,7 +262,7 @@ func serve_order()-> void:
 		
 		current_client.drink_right_order()
 		mixed_cocktail = null_cocktail
-		#print("You made correct cocktail!")
+		print("You made correct cocktail!")
 	else:
 		current_client.drink_wrong_order()
 		mixed_cocktail = null_cocktail
@@ -258,6 +270,7 @@ func serve_order()-> void:
 	
 	clear_toppings_in_cocktail()
 	give_tips()
+
 
 #endregion
 

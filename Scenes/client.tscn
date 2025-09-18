@@ -5,7 +5,7 @@
 [ext_resource type="Texture2D" uid="uid://cybnihopm2x4t" path="res://Assets/Graphics/speech_bubble.webp" id="3_urhfn"]
 
 [node name="Alien" type="Sprite2D"]
-z_index = -1
+z_index = 2
 scale = Vector2(0.798072, 0.798072)
 texture = ExtResource("2_wuhft")
 script = ExtResource("1_v1moc")

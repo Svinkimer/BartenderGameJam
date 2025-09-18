@@ -118,6 +118,7 @@ _data = {
 }
 
 [node name="ShakerScene" type="AnimatableBody2D"]
+z_index = 5
 script = ExtResource("2_n1qj4")
 
 [node name="ColorRect" type="ColorRect" parent="."]
