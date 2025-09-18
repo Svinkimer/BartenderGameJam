@@ -1,7 +1,7 @@
 [gd_resource type="Resource" script_class="AlienPreset" load_steps=3 format=3 uid="uid://b57ph1kf58bbg"]
 
 [ext_resource type="Script" uid="uid://8vt14iwuaica" path="res://Scripts/alien_variants/alien_preset.gd" id="1_3ujtp"]
-[ext_resource type="Texture2D" uid="uid://ue20k7ue37n5" path="res://Assets/Graphics/green_alien.webp" id="2_3ujtp"]
+[ext_resource type="Texture2D" uid="uid://xe5tt6txeacl" path="res://Assets/Graphics/alien1.png" id="2_3ujtp"]
 
 [resource]
 script = ExtResource("1_3ujtp")

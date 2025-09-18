@@ -1,14 +1,12 @@
 [gd_resource type="Resource" script_class="AlienPreset" load_steps=3 format=3 uid="uid://ddy1ootv74mt6"]
 
 [ext_resource type="Script" uid="uid://8vt14iwuaica" path="res://Scripts/alien_variants/alien_preset.gd" id="1_r74jw"]
-
-[sub_resource type="CompressedTexture2D" id="CompressedTexture2D_r74jw"]
-load_path = "res://.godot/imported/one_more_alien.png-278e9104d0dd7ffe706cda91c6d9d029.ctex"
+[ext_resource type="Texture2D" uid="uid://1qypqn4uw306" path="res://Assets/Graphics/alien2.png" id="2_n7hwj"]
 
 [resource]
 script = ExtResource("1_r74jw")
 name = "Килькоров"
-texture = SubResource("CompressedTexture2D_r74jw")
+texture = ExtResource("2_n7hwj")
 namecolor = Color(0.619608, 0.117647, 0, 1)
 greeting_line = Array[String](["Give me your warmest welcome! I would like some '", "Did I enter the right door? I want '"])
 right_drink_reply = Array[String](["This tastes like my home planet’s sunset.", "I’m buying you a drink next time!"])
