@@ -172,12 +172,9 @@ wait_time = 2.0
 
 [node name="Camera2D" type="Camera2D" parent="."]
 
-[node name="SceneTimer" type="Timer" parent="."]
-
 [node name="ShakerSound" type="AudioStreamPlayer" parent="."]
 stream = ExtResource("6_ojfl1")
 volume_db = -3.0
 parameters/looping = true
 
 [connection signal="timeout" from="ArrowShakeDirection/ArrowTimer" to="." method="_on_arrow_timer_timeout"]
-[connection signal="timeout" from="SceneTimer" to="." method="_on_scene_timer_timeout"]

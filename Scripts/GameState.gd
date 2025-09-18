@@ -193,6 +193,7 @@ func try_to_spawn_next_client() -> void:
 	alien_node.queue_free()
 	
 	create_client()
+	
 	# also here we'll add some checks "unhappy clients" ending condition
 
 func create_client():
@@ -210,6 +211,20 @@ func create_client():
 	
 	new_alien.initiate(alien_presets[id])
 	get_tree().root.get_node("BaseScene").add_child(new_alien)
+	
+	new_alien.connect("client_unhappy", _on_client_unhappy)
+	new_alien.connect("client_happy", _on_client_happy)
+
+func _on_client_unhappy():
+	unhappy_clents_count += 1
+	print("Client's unhappy!")
+	
+	if unhappy_clents_count > 3:
+		ending_clients_unhappy()
+
+func _on_client_happy():
+	unhappy_clents_count = 0
+	print("Client's happy!")
 
 #endregion
 
