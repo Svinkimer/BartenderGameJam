@@ -16,6 +16,7 @@ func _on_mouse_entered() -> void:
 	
 func _on_input_event(_viewport: Node, event: InputEvent, _shape_idx: int) -> void:
 	if (event is InputEventMouseButton and event.pressed):
+		MouseClick.play()
 		on_click()
 		
 func on_click():

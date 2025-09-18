@@ -19,6 +19,7 @@ config/icon="res://icon.svg"
 
 GameState="*res://Scripts/GameState.gd"
 Music="*res://Scenes/bgm.tscn"
+MouseClick="*res://Scenes/mouse_click.tscn"
 
 [display]
 

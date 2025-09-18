@@ -39,6 +39,8 @@ func _ready():
 
 func _input_event(_viewport: Viewport, event: InputEvent, _shape_idx: int) -> void:
 	if event is InputEventMouseButton and event.pressed and event.button_index == MOUSE_BUTTON_LEFT:
+		MouseClick.play()
+		
 		is_pressed = true
 		generate_shake_direction()
 		arrow_shake_direction.visible = true
@@ -48,6 +50,8 @@ func _input_event(_viewport: Viewport, event: InputEvent, _shape_idx: int) -> vo
 		
 		scene_timer.wait_time = 15
 		scene_timer.start()
+		
+		$ShakerSound.play()
 
 func detect_shake(shake_direction, mouse_relative: Vector2):
 	if (shake_direction == SHAKE_DIRECTIONS.VERTICAL):

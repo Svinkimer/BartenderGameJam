@@ -1,10 +1,11 @@
-[gd_scene load_steps=14 format=3 uid="uid://cj6012mk42p4q"]
+[gd_scene load_steps=15 format=3 uid="uid://cj6012mk42p4q"]
 
 [ext_resource type="Texture2D" uid="uid://bj6wa8lkswbuf" path="res://Assets/Graphics/shaker.webp" id="1_y63qt"]
 [ext_resource type="Script" uid="uid://blm6sq3hka6uw" path="res://Scripts/shaker.gd" id="2_n1qj4"]
 [ext_resource type="Texture2D" uid="uid://cwi0nc6u87ybk" path="res://Assets/Graphics/bar_shadow_round_large.svg" id="3_3cns1"]
 [ext_resource type="Texture2D" uid="uid://coto8obop2sla" path="res://Assets/Graphics/bar_round_gloss_large.svg" id="4_dbqg4"]
 [ext_resource type="Texture2D" uid="uid://byxaugdhh1u02" path="res://Assets/Graphics/double-arrow.png" id="5_ojfl1"]
+[ext_resource type="AudioStream" uid="uid://dlifgw7byltu1" path="res://Assets/Sounds/shaker.mp3" id="6_ojfl1"]
 
 [sub_resource type="Animation" id="Animation_h7fvy"]
 length = 0.001
@@ -171,6 +172,11 @@ wait_time = 2.0
 [node name="Camera2D" type="Camera2D" parent="."]
 
 [node name="SceneTimer" type="Timer" parent="."]
+
+[node name="ShakerSound" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("6_ojfl1")
+volume_db = -3.0
+parameters/looping = true
 
 [connection signal="timeout" from="ArrowShakeDirection/ArrowTimer" to="." method="_on_arrow_timer_timeout"]
 [connection signal="timeout" from="SceneTimer" to="." method="_on_scene_timer_timeout"]

@@ -268,7 +268,7 @@ var earned_money: int = 0 :
 		get_base().get_node("%EarnedMoneyLabel").text = str(value)
 		
 		if value >= 900 and clients_served_since_tax_pay >= 10:
-			ending_taxes_not_paied()
+			ending_taxes_not_payed()
 		if value >= 1000:
 			ending_win()
 
@@ -315,7 +315,7 @@ func collect_tips(tips_node_index: int):
 
 #region ENDINGS
 func ending_win():
-	print("Hurray! You won - 1000 space buckses earned")
+	print("Hurray! You won - 1000 space bucks earned")
 	end_game()
 
 func ending_poisoned_client():
@@ -326,7 +326,7 @@ func ending_drink_exploded():
 	print("KABO-O-O-OM! Drink suddenly exploded!!!")
 	end_game()
 
-func ending_taxes_not_paied():
+func ending_taxes_not_payed():
 	print("Someone didn't pay their taxes, I see? Mua-ha-ha-ha!")
 	end_game()
 	

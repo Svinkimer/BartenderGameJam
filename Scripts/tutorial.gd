@@ -56,6 +56,8 @@ func create_bar_menu():
 
 
 func _on_button_pressed() -> void:
+	MouseClick.play()
+	
 	if get_tree().root.has_node("BaseScene"):
 		var overlay_scene = get_node("/root/Tutorial")
 		if overlay_scene:

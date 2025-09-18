@@ -4,5 +4,6 @@ extends InteractiveObject
 
 func _on_input_event(_viewport: Node, event: InputEvent, _shape_idx: int) -> void:
 	if (event is InputEventMouseButton and event.pressed):
+		MouseClick.play()
 		print("Launching function `add_topping...` ", topping.name)
 		GameState.add_topping_to_cocktail(topping)

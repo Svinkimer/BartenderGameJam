@@ -1,0 +1,8 @@
+[gd_scene load_steps=2 format=3 uid="uid://bqr00metisrsw"]
+
+[ext_resource type="AudioStream" uid="uid://bovjapyw7hgyw" path="res://Assets/Sounds/mouse-click.mp3" id="1_ekcco"]
+
+[node name="MouseClick" type="AudioStreamPlayer"]
+stream = ExtResource("1_ekcco")
+volume_db = 2.0
+mix_target = 2
