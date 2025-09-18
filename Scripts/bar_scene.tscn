@@ -511,8 +511,8 @@ stream = ExtResource("22_qat0x")
 
 [node name="BarBacrground" type="Sprite2D" parent="Background"]
 z_index = 1
-position = Vector2(1, -54)
-scale = Vector2(0.68436, 0.660872)
+position = Vector2(1, -37.3877)
+scale = Vector2(0.68436, 0.687928)
 texture = ExtResource("22_rlc2g")
 
 [node name="Bar" type="Sprite2D" parent="Background"]

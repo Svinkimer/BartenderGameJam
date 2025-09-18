@@ -1,9 +1,13 @@
-[gd_resource type="Resource" script_class="ToppingPreset" load_steps=2 format=3 uid="uid://7gpxth7fjkll"]
+[gd_resource type="Resource" script_class="ToppingPreset" load_steps=4 format=3 uid="uid://7gpxth7fjkll"]
 
 [ext_resource type="Script" uid="uid://th6rgm31jnch" path="res://Scripts/toppings/topping_preset.gd" id="1_f602e"]
+[ext_resource type="Resource" uid="uid://whyyqomqmowr" path="res://Scripts/cocktails/Hirosima.tres" id="1_opdlf"]
+[ext_resource type="Resource" uid="uid://c681os1lt7nct" path="res://Scripts/cocktails/black-russian.tres" id="2_kfi4o"]
 
 [resource]
 script = ExtResource("1_f602e")
 name = &"Ягоды"
+explodes_with = ExtResource("1_opdlf")
+poisons_with = ExtResource("2_kfi4o")
 cost = 5
 metadata/_custom_type_script = "uid://th6rgm31jnch"

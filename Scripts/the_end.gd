@@ -8,19 +8,19 @@ func _ready() -> void:
 	
 	match ending:
 		0:
-			$Label.text = "You won! Congratulations!"
+			$Label.text = "Вы победили! Поздравляем!"
 			$Prize.visible = true
 		1:
-			$Label.text = "You poisoned a client!\nGalactic police are on their way."
+			$Label.text = "Вы отравили клиента!\nПолиция в пути."
 			$Poison.visible = true
 		2:
-			$Label.text = "KABO-O-O-OM!\nClient's drink suddenly exploded!"
+			$Label.text = "БУ-У-У-У-М!\nНапиток клиента внезапно взорвался!"
 			$Exploison.visible = true
 		3:
-			$Label.text = "It looks like someone didn't pay their taxes...\nSee ya in court"
+			$Label.text = "Кто-то решил уклониться от уплаты налогов...\nЖдите повестки в суд."
 			$Handcuffs.visible = true
 		4:
-			$Label.text = "Clients were not satisfied with the quality\nof your service. Your blood and eyes\nere now theirs to use."
+			$Label.text = "Клиенты остались недовольны Вашим сервисом\nВас пустили на ингредиенты для коктейлей."
 			$Blood.visible = true
 
 
