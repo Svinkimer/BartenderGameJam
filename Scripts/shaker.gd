@@ -1,3 +1,4 @@
+class_name ShakerMinigame
 extends AnimatableBody2D
 
 @onready var progress_bar: TextureProgressBar = $TextureProgressBar

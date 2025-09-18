@@ -10,6 +10,7 @@ shader = ExtResource("2_8h6y1")
 shader_parameter/intensity = 0.0
 
 [node name="Tips" type="Area2D"]
+z_index = 4
 scale = Vector2(0.341254, 0.341254)
 script = ExtResource("1_apcjs")
 
