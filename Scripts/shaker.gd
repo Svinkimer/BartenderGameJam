@@ -9,7 +9,6 @@ extends AnimatableBody2D
 
 @export var increment := 0.2
 @onready var arrow_timer: Timer = $ArrowShakeDirection/ArrowTimer
-@onready var scene_timer: Timer = $SceneTimer
 
 var is_pressed := false
 
@@ -47,9 +46,6 @@ func _input_event(_viewport: Viewport, event: InputEvent, _shape_idx: int) -> vo
 		arrow_timer.wait_time = 3
 		arrow_timer.start()
 		
-		scene_timer.wait_time = 15
-		scene_timer.start()
-		
 		$ShakerSound.play()
 
 func detect_shake(shake_direction, mouse_relative: Vector2):
@@ -75,9 +71,6 @@ func _input(event: InputEvent) -> void:
 	if is_pressed and event is InputEventMouseMotion:
 		var mouse_relative = event.get_relative()
 		detect_shake(shake_direction, mouse_relative)
-
-func _on_scene_timer_timeout() -> void:
-	quit_scene()
 	
 func quit_scene():
 	var overlay_scene = get_node("/root/ShakerScene")

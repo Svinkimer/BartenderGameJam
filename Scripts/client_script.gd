@@ -77,19 +77,25 @@ func eat_a_dumpling():
 	start_temper_timer()
 	print("timer reset")
 
+signal client_unhappy
+signal client_happy
+
 func temper_over():
 	# say("Fuck you", 1.0)
+	client_unhappy.emit()
 	var reply = cur_preset.times_up_reply[randi() % cur_preset.times_up_reply.size()]
 	say(reply, 2.0)
 	leave_scene()
 
 func drink_wrong_order():
+	client_unhappy.emit()
 	temper_tween.kill()
 	var reply = cur_preset.wrong_drink_reply[randi() % cur_preset.wrong_drink_reply.size()]
 	say(reply, 2.0)
 	leave_scene()
 	
 func drink_right_order():
+	client_happy.emit()
 	temper_tween.kill()
 	# say("Thank you, sunshine!", 1.0)
 	var reply = cur_preset.right_drink_reply[randi() % cur_preset.right_drink_reply.size()]

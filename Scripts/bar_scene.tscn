@@ -1,4 +1,4 @@
-[gd_scene load_steps=45 format=3 uid="uid://nexu324ps2np"]
+[gd_scene load_steps=47 format=3 uid="uid://nexu324ps2np"]
 
 [ext_resource type="Script" uid="uid://kxs6hx601h0l" path="res://Scripts/base_scene_script.gd" id="1_w82d0"]
 [ext_resource type="Texture2D" uid="uid://mq01g4du4bav" path="res://Assets/Graphics/bottle-asset.png" id="2_grsh6"]
@@ -6,12 +6,14 @@
 [ext_resource type="Script" uid="uid://wc3t5o6oddbj" path="res://Scripts/bottle_script_new.gd" id="3_dguys"]
 [ext_resource type="Texture2D" uid="uid://bj6wa8lkswbuf" path="res://Assets/Graphics/shaker.webp" id="3_v4ssl"]
 [ext_resource type="Shader" uid="uid://cgavux134173s" path="res://Scripts/highlight.gdshader" id="4_rj2d4"]
-[ext_resource type="Resource" uid="uid://bd7w6ca452nqg" path="res://Scripts/ingredients/tonic.tres" id="4_vgg6j"]
+[ext_resource type="Resource" uid="uid://bd7w6ca452nqg" path="res://Scripts/ingredients/50_absent.tres" id="4_vgg6j"]
 [ext_resource type="Script" uid="uid://b4wmdykc34wpv" path="res://Scripts/mixers_cup.gd" id="6_7pjbf"]
 [ext_resource type="Texture2D" uid="uid://dolna3fmckrk6" path="res://Assets/Graphics/cap.png" id="6_iqjmv"]
-[ext_resource type="Resource" uid="uid://buyaw0dauxdkx" path="res://Scripts/ingredients/gin.tres" id="6_w82d0"]
+[ext_resource type="Resource" uid="uid://buyaw0dauxdkx" path="res://Scripts/ingredients/Power_Slavic.tres" id="6_w82d0"]
+[ext_resource type="Texture2D" uid="uid://cwpg5mk6267ld" path="res://Assets/Graphics/bottle1.png" id="10_n3mmg"]
 [ext_resource type="Material" uid="uid://br40smcaqjtlg" path="res://Scripts/highlight_shader_material.tres" id="10_w82d0"]
-[ext_resource type="Resource" uid="uid://bwown7dcpfvo6" path="res://Scripts/ingredients/wiskey.tres" id="11_inta4"]
+[ext_resource type="Resource" uid="uid://bwown7dcpfvo6" path="res://Scripts/ingredients/Blood_of_OMEZHka.tres" id="11_inta4"]
+[ext_resource type="Texture2D" uid="uid://dqarkdt0mh1ii" path="res://Assets/Graphics/bottle2.png" id="12_g0n7r"]
 [ext_resource type="Script" uid="uid://co2iqtq27tpbs" path="res://Scripts/cocktail_glass.gd" id="13_4ojyy"]
 [ext_resource type="Texture2D" uid="uid://chbo4k7k5hgql" path="res://Assets/Graphics/cocktail.png" id="13_sujg0"]
 [ext_resource type="Script" uid="uid://dt1xlesr74lce" path="res://Scripts/topping_script.gd" id="15_pcjn2"]
@@ -256,39 +258,42 @@ offset_bottom = 40.0
 
 [node name="Bottle2" type="Area2D" parent="Drinks"]
 z_index = 4
-position = Vector2(-440, 185)
+position = Vector2(-464, 195)
 scale = Vector2(0.773364, 0.773364)
 script = ExtResource("3_dguys")
 key = &"Тоник"
 drink = ExtResource("4_vgg6j")
 metadata/_edit_group_ = true
 
-[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Drinks/Bottle2"]
-polygon = PackedVector2Array(-18, -176, -19, -61, -55, -27, -55, 161, -44, 174, 42, 177, 55, 162, 55, -30, 19, -65, 18, -176)
-
 [node name="Sprite2D" type="Sprite2D" parent="Drinks/Bottle2"]
 material = SubResource("ShaderMaterial_dguys")
-texture = ExtResource("2_grsh6")
+scale = Vector2(0.314034, 0.314034)
+texture = ExtResource("10_n3mmg")
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Drinks/Bottle2"]
+scale = Vector2(0.791262, 0.791262)
+polygon = PackedVector2Array(-54.3082, -169.39, -27.1541, -126.719, -25.8611, -55.6012, -120.254, 2.58611, -71.1179, 169.39, 72.4109, 170.683, 120.254, 2.58611, 25.861, -56.8943, 29.7402, -128.012, 50.4291, -170.683)
 
 [node name="Bottle1" type="Area2D" parent="Drinks"]
 z_index = 4
-position = Vector2(-550, 221)
+position = Vector2(-611, 219)
 scale = Vector2(0.76182, 0.76182)
 script = ExtResource("3_dguys")
 key = &"Джин"
 drink = ExtResource("6_w82d0")
 metadata/_edit_group_ = true
 
-[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Drinks/Bottle1"]
-polygon = PackedVector2Array(-18, -176, -19, -61, -55, -27, -55, 161, -44, 174, 42, 177, 55, 162, 55, -30, 19, -65, 18, -176)
-
 [node name="Sprite2D" type="Sprite2D" parent="Drinks/Bottle1"]
 material = SubResource("ShaderMaterial_rj2d4")
-texture = ExtResource("2_grsh6")
+scale = Vector2(0.337746, 0.337746)
+texture = ExtResource("12_g0n7r")
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Drinks/Bottle1"]
+polygon = PackedVector2Array(-11.8138, -157.518, -11.8138, -93.1979, -35.4414, -76.1335, -36.7541, 156.205, 36.7541, 157.517, 35.4415, -77.4462, 13.1265, -90.5726, 11.8138, -158.83)
 
 [node name="Bottle3" type="Area2D" parent="Drinks"]
 z_index = 4
-position = Vector2(-328, 224)
+position = Vector2(-269, 227)
 scale = Vector2(0.773364, 0.773364)
 script = ExtResource("3_dguys")
 key = &"Виски"

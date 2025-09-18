@@ -21,7 +21,7 @@ func _ready() -> void:
 			$Handcuffs.visible = true
 		4:
 			$Label.text = "Clients were not satisfied with the quality\nof your service. Your blood and eyes\nere now theirs to use."
-			$Handcuffs.visible = true
+			$Blood.visible = true
 
 
 func _on_quit_pressed() -> void:

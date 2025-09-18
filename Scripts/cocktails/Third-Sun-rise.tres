@@ -1,0 +1,14 @@
+[gd_resource type="Resource" script_class="CocktailPreset" load_steps=5 format=3 uid="uid://d315qwlrfn4r3"]
+
+[ext_resource type="Script" uid="uid://bsl0ueiomlsm6" path="res://Scripts/ingredients/ingredient_preset.gd" id="1_e3gsc"]
+[ext_resource type="Resource" uid="uid://bd7w6ca452nqg" path="res://Scripts/ingredients/50_absent.tres" id="2_e3gsc"]
+[ext_resource type="Resource" uid="uid://b6hloixolq11h" path="res://Scripts/ingredients/Jija.tres" id="3_sbvrk"]
+[ext_resource type="Script" uid="uid://ddbigfcnk37ea" path="res://Scripts/cocktails/cocktail_preset.gd" id="4_o40e8"]
+
+[resource]
+script = ExtResource("4_o40e8")
+name = &"(не)Виски-Кола"
+ingredients = Array[ExtResource("1_e3gsc")]([ExtResource("2_e3gsc"), ExtResource("3_sbvrk")])
+cost = 10
+client_line = "Is it third positive?"
+metadata/_custom_type_script = "uid://ddbigfcnk37ea"
