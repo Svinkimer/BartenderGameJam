@@ -244,7 +244,10 @@ func serve_order()-> void:
 	if mixed_cocktail == null_cocktail:
 		return
 	
-	client_vacant = current_client.get_waiting_state()
+	if current_client:
+		client_vacant = current_client.get_waiting_state()
+	else:
+		client_vacant = false
 	
 	if not client_vacant:
 		return
