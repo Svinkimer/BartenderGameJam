@@ -1,10 +1,12 @@
-[gd_scene load_steps=8 format=3 uid="uid://crvo564wxm88r"]
+[gd_scene load_steps=10 format=3 uid="uid://crvo564wxm88r"]
 
-[ext_resource type="Texture2D" uid="uid://dcu7n1wjcaeuw" path="res://Assets/Graphics/barBacrgroundAndThings.jpg" id="1_28flt"]
 [ext_resource type="Script" uid="uid://cdsowjw0mn2it" path="res://Scripts/main_menu.gd" id="1_48xlc"]
+[ext_resource type="Texture2D" uid="uid://bo35kxcbx70ol" path="res://Assets/Graphics/Stars Parallax L1.png" id="2_ce3w2"]
+[ext_resource type="Texture2D" uid="uid://btseagld775lb" path="res://Assets/Graphics/Logo_White.png" id="3_1ehe0"]
+[ext_resource type="Texture2D" uid="uid://js47kprkssrx" path="res://Assets/Graphics/Stars Parallax L2.png" id="4_n45e2"]
 
 [sub_resource type="StyleBoxTexture" id="StyleBoxTexture_48xlc"]
-texture = ExtResource("1_28flt")
+texture = ExtResource("2_ce3w2")
 modulate_color = Color(0.497474, 0.497474, 0.497474, 1)
 
 [sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_erv1k"]
@@ -52,6 +54,57 @@ grow_horizontal = 2
 grow_vertical = 2
 theme_override_styles/panel = SubResource("StyleBoxTexture_48xlc")
 
+[node name="TextureRect" type="TextureRect" parent="."]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -270.5
+offset_top = -252.0
+offset_right = 270.5
+offset_bottom = -94.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("3_1ehe0")
+expand_mode = 1
+
+[node name="Space" type="TextureRect" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("4_n45e2")
+expand_mode = 1
+
+[node name="Space3" type="TextureRect" parent="."]
+self_modulate = Color(0, 0.713726, 0, 1)
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("4_n45e2")
+expand_mode = 1
+flip_h = true
+
+[node name="Space2" type="TextureRect" parent="."]
+self_modulate = Color(0.320273, 0.667347, 0.985265, 1)
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("4_n45e2")
+expand_mode = 1
+flip_h = true
+flip_v = true
+
 [node name="VBoxContainer" type="VBoxContainer" parent="."]
 layout_mode = 1
 anchors_preset = 8
@@ -96,21 +149,6 @@ theme_override_styles/hover = SubResource("StyleBoxFlat_erv1k")
 theme_override_styles/pressed = SubResource("StyleBoxFlat_48xlc")
 theme_override_styles/normal = SubResource("StyleBoxFlat_28flt")
 text = "Выход"
-
-[node name="GameName" type="Label" parent="."]
-layout_mode = 1
-anchors_preset = 5
-anchor_left = 0.5
-anchor_right = 0.5
-offset_left = -270.5
-offset_top = 78.0
-offset_right = 270.5
-offset_bottom = 174.0
-grow_horizontal = 2
-theme_override_font_sizes/font_size = 50
-text = "Название игры"
-horizontal_alignment = 1
-vertical_alignment = 1
 
 [connection signal="pressed" from="VBoxContainer/Play" to="." method="_on_play_pressed"]
 [connection signal="pressed" from="VBoxContainer/Tutorial" to="." method="_on_tutorial_pressed"]

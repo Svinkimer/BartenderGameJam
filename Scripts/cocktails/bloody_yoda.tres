@@ -1,0 +1,14 @@
+[gd_resource type="Resource" script_class="CocktailPreset" load_steps=5 format=3 uid="uid://drtggy5hoev0d"]
+
+[ext_resource type="Script" uid="uid://bsl0ueiomlsm6" path="res://Scripts/ingredients/ingredient_preset.gd" id="1_ijil6"]
+[ext_resource type="Resource" uid="uid://bwown7dcpfvo6" path="res://Scripts/ingredients/Blood_of_OMEZHka.tres" id="2_sh5vc"]
+[ext_resource type="Resource" uid="uid://buyaw0dauxdkx" path="res://Scripts/ingredients/Power_Slavic.tres" id="3_oxuhd"]
+[ext_resource type="Script" uid="uid://ddbigfcnk37ea" path="res://Scripts/cocktails/cocktail_preset.gd" id="4_bbid4"]
+
+[resource]
+script = ExtResource("4_bbid4")
+name = &"Кровавый Йода"
+ingredients = Array[ExtResource("1_ijil6")]([ExtResource("2_sh5vc"), ExtResource("3_oxuhd")])
+cost = 15
+client_line = "May the force be with you!"
+metadata/_custom_type_script = "uid://ddbigfcnk37ea"
